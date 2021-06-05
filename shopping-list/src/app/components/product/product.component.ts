@@ -6,38 +6,40 @@ import {Component} from "@angular/core";
 })
 
 export class ProductComponent {
-  private _name: string;
-  private _price: number;
-  private _amount: number;
+  private _productName: string;
+  private _productPrice: number;
+  private _productAmount: number;
 
-  constructor(name: string, price: number, amount: number) {
-    this._name = name;
-    this._price = price;
-    this._amount = amount;
+
+  constructor(productName: string, productPrice: number, productAmount: number) {
+    this._productName = productName;
+    this._productPrice = productPrice;
+    this._productAmount = productAmount;
   }
 
-  get name(): string {
-    return this._name;
+
+  get productName(): string {
+    return this._productName;
   }
 
-  set name(value: string) {
-    this._name = value;
+  set productName(value: string) {
+    this._productName = value;
   }
 
-  get price(): number {
-    return this._price;
+  get productPrice(): number {
+    return this._productPrice;
   }
 
-  set price(value: number) {
-    this._price = value;
+  set productPrice(value: number) {
+    this._productPrice = value;
   }
 
-  get amount(): number {
-    return this._amount;
+  get productAmount(): number {
+    return this._productAmount;
   }
 
-  set amount(value: number) {
-    this._amount = value;
+  set productAmount(value: number) {
+    this._productAmount = value;
   }
 
   public onion = new ProductComponent("Onion", 0.89, 1);
