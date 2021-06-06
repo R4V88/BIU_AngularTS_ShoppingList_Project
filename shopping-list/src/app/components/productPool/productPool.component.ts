@@ -27,10 +27,19 @@ export class ProductPoolComponent {
     ]
   }
 
-  public addProduct(productName: string, productValue: number, productAmount: number) {
-    let newProduct = new ProductComponent(productName, productValue, productAmount);
-    this.products.push(newProduct);
+  public addProduct(productName: string, productPrice: number, productAmount: number) {
+    let newProduct = new ProductComponent(productName, productPrice, productAmount);
+    if(!this.isProductExist(productName))
+        this.products.push(newProduct);
   }
 
+  public isProductExist(productName: string) {
+    for(let i = 0; i < this.products.length; i++) {
+      if (this.products[i].productName.toUpperCase() == productName.toUpperCase()) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }

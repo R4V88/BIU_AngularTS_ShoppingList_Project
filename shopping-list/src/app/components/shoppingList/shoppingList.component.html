@@ -1,0 +1,8 @@
+<div>
+  <h4>Shopping List</h4>
+  <div class="row" *ngFor="let prod of list">
+      <div>{{prod.productName}}: {{prod.productAmount}}: {{prod.productPrice}}</div>
+  </div>
+
+  <button>Add new Shopping List</button>
+</div>
