@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import {ProductComponent} from "./components/product/product.component";
-import {ProductPoolComponent} from "./components/productPool/productPool.component";
-import {ShoppingListComponent} from "./components/shoppingList/shoppingList.component";
+import {AppComponent} from './app.component';
+import {ProductsPoolComponent} from './products-pool/products-pool.component';
+import {ProductsComponent} from './products/products.component';
+import {ProductsListComponent} from './products-list/products-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductPoolComponent,
-    ShoppingListComponent
+    ProductsPoolComponent,
+    ProductsComponent,
+    ProductsListComponent,
   ],
   imports: [
     BrowserModule
@@ -19,4 +19,5 @@ import {ShoppingListComponent} from "./components/shoppingList/shoppingList.comp
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
