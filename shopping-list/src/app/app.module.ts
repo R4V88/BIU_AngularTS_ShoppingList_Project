@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {ProductsPoolComponent} from './products/products-pool/products-pool.component';
+import {ProductsPoolComponent} from './products/product-pool/product-pool.component';
 import {ProductComponent} from './products/product/product.component';
 import {ProductsListComponent} from './products/products-list/products-list.component';
 import {WelcomeComponent} from "./home/welcome.component";

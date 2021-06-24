@@ -1,32 +1,41 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from "rxjs";
-import {PRODUCTS} from "./mock-products";
-import {Product} from "./product";
+import {Observable, throwError} from "rxjs";
+import {IProduct} from "./product";
+import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {catchError, map, tap} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  products: Product[] = [];
-  product: Product = {} as Product;
+  private productUrl = "api/products/products.json"
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  getProducts(): Observable<Product[]> {
-    return of(PRODUCTS);
+  getProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.productUrl)
+      .pipe(
+        tap(data => console.log('All: ', JSON.stringify(data))),
+        catchError(this.handleError)
+      )
   }
 
-  getProduct(id: number): Product {
-    let products = this.getProducts();
-    let value = products.subscribe()
-    for (let i = 0; i < products.)
+  getProduct(id: number): Observable<IProduct | undefined> {
+    return this.getProducts()
+      .pipe(
+        map((products: IProduct[]) => products.find(p => p.id === id))
+      );
   }
 
-  // addProduct(name: string, price: number, amount: number) {
-  //   const id = PRODUCTS.length;
-  //   PRODUCTS.push(new Prod)
-  //   PRODUCTS.push(new Product(id, name, price, amount));
-  // }
-
+  private handleError(err: HttpErrorResponse): Observable<never> {
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+  }
 }
