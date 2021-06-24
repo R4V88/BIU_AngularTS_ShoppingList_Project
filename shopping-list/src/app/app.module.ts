@@ -5,6 +5,9 @@ import {AppComponent} from './app.component';
 import {ProductsPoolComponent} from './products/products-pool/products-pool.component';
 import {ProductComponent} from './products/product/product.component';
 import {ProductsListComponent} from './products/products-list/products-list.component';
+import {WelcomeComponent} from "./home/welcome.component";
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -12,9 +15,15 @@ import {ProductsListComponent} from './products/products-list/products-list.comp
     ProductsPoolComponent,
     ProductComponent,
     ProductsListComponent,
+    WelcomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'wecome', component: WelcomeComponent}
+    ])
+
   ],
   providers: [],
   bootstrap: [AppComponent]
