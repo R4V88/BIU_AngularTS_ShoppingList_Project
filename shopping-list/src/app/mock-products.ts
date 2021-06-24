@@ -1,6 +1,6 @@
 import {Product} from "./product";
 
-export const PRODUCTSMCK: Product[] = [
+export const PRODUCTS: Product[] = [
   {id: 1, name: "Onion", price: 0.89, amount: 1},
   {id: 2, name: "Potato", price: 1, amount: 1},
   {id: 3, name: "Tomato", price: 1.25, amount: 1},

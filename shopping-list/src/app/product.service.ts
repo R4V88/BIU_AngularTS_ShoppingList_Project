@@ -1,24 +1,26 @@
 import {Injectable} from '@angular/core';
-import {PRODUCTSMCK} from "./mock-products";
 import {Observable, of} from "rxjs";
+import {PRODUCTS} from "./mock-products";
 import {Product} from "./product";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  products: Product[] = [];
+  product: Product = {} as Product;
 
   constructor() {
   }
 
-  getProductsMock(): Observable<Product[]> {
-    const products = of(PRODUCTSMCK);
-    return products;
+  getProducts(): Observable<Product[]> {
+    return of(PRODUCTS);
   }
 
-  getProductMock(id: number): Observable<Product> {
-    const product = PRODUCTSMCK.find(p => p.id === id)!;
-    return of(product);
+  getProduct(id: number): Product {
+    let products = this.getProducts();
+    let value = products.subscribe()
+    for (let i = 0; i < products.)
   }
 
   // addProduct(name: string, price: number, amount: number) {
