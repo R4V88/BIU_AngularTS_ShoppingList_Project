@@ -15,13 +15,16 @@ import {RouterModule} from "@angular/router";
     ProductPoolComponent,
     ProductComponent,
     ProductsListComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'wecome', component: WelcomeComponent}
+      {path: 'welcome', component: WelcomeComponent},
+      {path: 'products', component: ProductPoolComponent},
+      {path: '', redirectTo: 'welcome', pathMatch: 'full'},
+      {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
 
   ],

@@ -10,8 +10,8 @@
         <li class="nav-item active">
           <a class="nav-link" routerLinkActive="active" routerLink="/welcome">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Products Pool</a>
+        <li class="nav-item active">
+          <a class="nav-link" routerLinkActive="active" routerLink="/products">Products Pool</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Products List</a>
@@ -21,7 +21,9 @@
   </nav>
 </header>
 
-<rooter-outlet></rooter-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
 
 <footer>
   <div class="card">
@@ -29,7 +31,7 @@
       Author:
     </div>
     <div class="card-body">
-      <h5 class="card-title">Rafał Sochacki</h5>
+      <h5 class="card-title">Rafal Sochacki</h5>
       <h5 class="card-title">s20047</h5>
     </div>
   </div>
