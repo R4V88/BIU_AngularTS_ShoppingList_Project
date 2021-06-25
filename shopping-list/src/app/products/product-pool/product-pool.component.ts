@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {IProduct} from "../product/product";
 import {Subscription} from "rxjs";
 import {ProductService} from "../product/product.service";
+import {Router} from "@angular/router";
 
 @Component({
   templateUrl: './product-pool.component.html',
@@ -13,7 +14,8 @@ export class ProductPoolComponent implements OnInit {
   products: IProduct[] = [];
   errorMessage = '';
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,4 +27,7 @@ export class ProductPoolComponent implements OnInit {
     });
   }
 
+  onBack(): void {
+    this.router.navigate(['/welcome'])
+  }
 }

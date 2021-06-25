@@ -1,25 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import {Product} from "./product";
+import {IProduct} from "./product";
 import {ProductService} from "./product.service";
 
 @Component({
-  selector: 'app-products',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
 
-  products: Product[] = [];
+  product: IProduct | undefined
+  errorMessage = '';
 
   constructor(private productService: ProductService) {
   }
 
-  ngOnInit(): void {
-    this.productService
-      .getProducts()
-      .subscribe((products) => this.products = products);
+  ngOnInit(): void {}
+
+  getProduct(id: number): void {
+    this.productService.getProduct(id).subscribe({
+      next: product => this.product = product,
+      error: err => this.errorMessage = err
+    });
   }
-
-
-
 }
