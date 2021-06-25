@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {IProduct} from "../product/product";
 import {Subscription} from "rxjs";
 import {ProductService} from "../product/product.service";
@@ -8,7 +8,8 @@ import {Router} from "@angular/router";
   templateUrl: './product-pool.component.html',
   styleUrls: ['./product-pool.component.css']
 })
-export class ProductPoolComponent implements OnInit {
+export class ProductPoolComponent implements OnInit, OnDestroy{
+
   pageTitle = 'Product Pool'
   sub!: Subscription;
   products: IProduct[] = [];
@@ -25,6 +26,10 @@ export class ProductPoolComponent implements OnInit {
       },
       error: err => this.errorMessage = err
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   onBack(): void {

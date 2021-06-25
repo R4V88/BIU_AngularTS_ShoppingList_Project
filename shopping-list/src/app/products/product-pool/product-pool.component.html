@@ -17,6 +17,7 @@
         <tr *ngFor='let product of products'>
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
+          <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
         </tr>
         </tbody>
       </table>

@@ -8,6 +8,7 @@ import {ProductsListComponent} from './products/products-list/products-list.comp
 import {WelcomeComponent} from "./home/welcome.component";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {RouterModule} from "@angular/router";
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
       {path: 'products', component: ProductPoolComponent},
