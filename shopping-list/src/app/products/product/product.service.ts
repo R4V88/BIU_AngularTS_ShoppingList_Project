@@ -8,9 +8,25 @@ import {catchError, map, tap} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ProductService {
+
   private productUrl = 'api/products/products.json';
 
+  private allProducts: Observable<IProduct[]> = this.getProducts();
+
   constructor(private http: HttpClient) { }
+
+  getAllProducts(): Observable<IProduct[]> {
+    // const productObservable = new Observable(observer => {
+    //   setTimeout(() => {
+    //     observer.next({products : this.allProducts});
+    //   }, 1000);
+    // })
+    // productObservable;
+    return this.allProducts.pipe(
+      tap(data => console.log('All: ', JSON.stringify(data))),
+      catchError(this.handleError)
+    )
+  }
 
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl)
@@ -21,10 +37,17 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<IProduct | undefined> {
-    return this.getProducts()
+    return this.getAllProducts()
       .pipe(
         map((products: IProduct[]) => products.find(p => p.id === id))
       );
+  }
+
+  getProductByName(name: string): Observable<IProduct | undefined> {
+    return this.getAllProducts()
+      .pipe(
+        map((products: IProduct[]) => products.find(p => p.name === name))
+      )
   }
 
   private handleError(err: HttpErrorResponse): Observable<never> {

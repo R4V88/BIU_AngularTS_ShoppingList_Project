@@ -22,4 +22,8 @@ export class ProductComponent implements OnInit {
       error: err => this.errorMessage = err
     });
   }
+
+  addProduct(id: number, name: string, price: number, amount: number, sum: number): IProduct {
+      return {id, name, price, amount, sum};
+  }
 }

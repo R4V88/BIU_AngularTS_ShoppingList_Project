@@ -6,21 +6,27 @@
 
     <div class='table-responsive'>
       <table class='table'
-             *ngIf='products.length'>
+             *ngIf='allProducts.length'>
         <thead>
         <tr>
           <th>Product</th>
+          <th>Amount</th>
           <th>Price</th>
+          <th>Sum</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let product of products'>
+        <tr *ngFor='let product of allProducts'>
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
           <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+          <td>{{product.sum | currency: 'PLN': 'symbol': '1.2-2'}}</td>
         </tr>
         </tbody>
       </table>
+    </div>
+    <div class="container">
+      <app-product-editor></app-product-editor>
     </div>
   </div>
 </div>
