@@ -4,6 +4,7 @@ import {observable, Observable, Subscription} from "rxjs";
 import {ProductService} from "../product/product.service";
 import {Router} from "@angular/router";
 import {ProductComponent} from "../product/product.component";
+import {IProductAdd} from "../product/product-add";
 
 
 @Component({
@@ -14,7 +15,8 @@ export class ProductPoolComponent implements OnInit, OnDestroy {
 
   pageTitle = 'Product Pool'
   sub!: Subscription;
-  // products: IProduct[] = [];
+  product!: IProduct;
+
   errorMessage = '';
   allProducts: IProduct[] = [];
 
@@ -37,10 +39,15 @@ export class ProductPoolComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  addCreatedProduct(name: string, price: number, amount: number) {
-    let sum: number = price * amount;
-    let id = this.getIndex(this.allProducts);
-    return {id, name, price, amount, sum};
+  addCreatedProduct(newProduct: IProductAdd) {
+    const product: IProduct = {
+      "id": this.getIndex(this.allProducts),
+      "name": newProduct.name,
+      "price": newProduct.price,
+      "amount": newProduct.amount,
+      "sum": newProduct.price * newProduct.amount
+    };
+    this.allProducts.push(product);
   }
 
   getIndex(list: IProduct[]): number{
