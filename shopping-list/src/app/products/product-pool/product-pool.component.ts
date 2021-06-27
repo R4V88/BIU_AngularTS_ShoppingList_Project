@@ -1,8 +1,7 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IProduct} from "../product/product";
-import {Subscription} from "rxjs";
 import {ProductService} from "../product/product.service";
-import {Router} from "@angular/router";
+import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 
 
 
@@ -15,11 +14,10 @@ export class ProductPoolComponent implements OnInit {
 
   pageTitle = 'Product Pool'
   products: IProduct[] = [];
-
-  // sub!: Subscription;
-
-  product!: IProduct;
   errorMessage = '';
+  faTimes = faTimes;
+
+  @Input() product!: IProduct;
 
   constructor(private productService: ProductService) {
   }
@@ -28,13 +26,9 @@ export class ProductPoolComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => (this.products = products))
   }
 
-  // ngOnDestroy(): void {
-  //   this.sub.unsubscribe();
-  // }
-
   addCreatedProduct(product: IProduct) {
     const newProduct: IProduct = {
-      "id": this.getIndex(this.products),
+      "id": this.getLastItemIndex(this.products),
       "name": product.name,
       "price": product.price,
       "amount": product.amount,
@@ -44,11 +38,13 @@ export class ProductPoolComponent implements OnInit {
     this.productService.addProduct(newProduct).subscribe((product) => this.products.push(product));
   }
 
-  getIndex(list: IProduct[]): number{
+  getLastItemIndex(list: IProduct[]): number{
     return list.length + 1;
   }
 
-  // onBack(): void {
-  //   this.router.navigate(['/welcome'])
-  // }
+  onDelete(product: IProduct) {
+    this.productService
+      .deleteProduct(product)
+      .subscribe(() => (this.products = this.products.filter((p :IProduct) => p.id !== product.id)))
+  }
 }

@@ -28,7 +28,7 @@
               <td>{{ product.name | lowercase }}</td>
               <td>{{ product.amount }}</td>
               <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-              <td>{{product.sum}}</td>
+              <td>{{product.sum | currency: 'PLN': 'symbol': '1.2-2'}}</td>
             </tr>
             </tbody>
           </table>

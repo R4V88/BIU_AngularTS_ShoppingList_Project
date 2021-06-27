@@ -63,22 +63,6 @@
       "amount": "4",
       "sum": 4,
       "isSelected": false
-    },
-    {
-      "id": 9,
-      "name": "cyrk",
-      "price": "2",
-      "amount": "1",
-      "sum": 2,
-      "isSelected": false
-    },
-    {
-      "id": 10,
-      "name": "cyrk inny",
-      "price": "2.13",
-      "amount": "4",
-      "sum": 8.52,
-      "isSelected": false
     }
   ],
   "lists": []

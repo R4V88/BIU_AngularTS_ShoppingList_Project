@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IProduct} from "./product";
-import {ProductService} from "./product.service";
+import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 
 @Component({
   templateUrl: './product.component.html',
@@ -8,22 +8,14 @@ import {ProductService} from "./product.service";
 })
 export class ProductComponent implements OnInit {
 
-  product: IProduct | undefined
-  errorMessage = '';
+  @Input() product!: IProduct;
+  @Output() onDeleteTask: EventEmitter<IProduct> = new EventEmitter();
 
-  constructor(private productService: ProductService) {
+  faTimes = faTimes;
+
+  constructor() {
   }
 
   ngOnInit(): void {}
 
-  getProduct(id: number): void {
-    this.productService.getProductById(id).subscribe({
-      next: product => this.product = product,
-      error: err => this.errorMessage = err
-    });
-  }
-
-  addProduct(id: number, name: string, price: number, amount: number, sum: number): IProduct {
-      return {id, name, price, amount, sum};
-  }
 }

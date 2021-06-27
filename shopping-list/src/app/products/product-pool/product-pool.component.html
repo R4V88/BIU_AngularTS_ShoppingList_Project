@@ -12,6 +12,7 @@
           <th>Product</th>
           <th>Amount</th>
           <th>Price / 1 prod.</th>
+          <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -19,6 +20,12 @@
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
           <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+          <td><fa-icon
+            (click)="onDelete(product)"
+            [ngStyle]="{ color: 'red' }"
+            [icon]="faTimes">
+          </fa-icon>
+          </td>
         </tr>
         </tbody>
       </table>
