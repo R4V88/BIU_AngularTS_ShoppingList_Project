@@ -10,6 +10,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router"
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddProductComponent} from './products/product/add-product.component';
+import { NavigationComponent } from './shared/navigation/navigation.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import {AddProductComponent} from './products/product/add-product.component';
     ProductsListComponent,
     WelcomeComponent,
     AddProductComponent,
+    NavigationComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
