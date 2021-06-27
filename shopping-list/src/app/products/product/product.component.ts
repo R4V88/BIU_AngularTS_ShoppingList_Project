@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {IProduct} from "./product";
+import {IProduct} from "../entity/product";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 
 @Component({

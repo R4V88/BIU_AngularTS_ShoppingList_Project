@@ -15,20 +15,16 @@
                  *ngIf='products.length'>
             <thead>
             <tr>
-              <th>check</th>
               <th>Product</th>
               <th>Amount</th>
               <th>Price</th>
-              <th>Sum</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor='let product of products'>
-<!--              <td><input name="isSelected" type="checkbox"></input>{{product.isSelected}}</td>-->
               <td>{{ product.name | lowercase }}</td>
               <td>{{ product.amount }}</td>
               <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-              <td>{{product.sum | currency: 'PLN': 'symbol': '1.2-2'}}</td>
             </tr>
             </tbody>
           </table>

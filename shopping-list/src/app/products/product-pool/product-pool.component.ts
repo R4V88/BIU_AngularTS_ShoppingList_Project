@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IProduct} from "../product/product";
-import {ProductService} from "../product/product.service";
+import {IProduct} from "../entity/product";
+import {ProductService} from "../services/product.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 
 

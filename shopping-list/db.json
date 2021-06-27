@@ -65,5 +65,37 @@
       "isSelected": false
     }
   ],
-  "lists": []
+  "lists": [
+    {
+      "id": 1,
+      "products" : [{
+        "id": 1,
+        "name": "Onion",
+        "price": 0.89,
+        "amount": 1,
+        "sum": 0.89,
+        "isSelected": false
+      },
+        {
+          "id": 2,
+          "name": "Potato",
+          "price": 1,
+          "amount": 1,
+          "sum": 1,
+          "isSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Tomato",
+          "price": 1.25,
+          "amount": 1,
+          "sum": 1.25,
+          "isSelected": false
+        }],
+      "selectedPrice": 0,
+      "unselectedPrice": 3.14,
+      "totalPrice": 3.14
+    }
+  ]
 }
+

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, throwError} from "rxjs";
-import {IProduct} from "./product";
+import {IProduct} from "../entity/product";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map} from "rxjs/operators";
 

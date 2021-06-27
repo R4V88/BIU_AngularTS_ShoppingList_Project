@@ -14,6 +14,7 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddListComponent } from './products/products-list/add-list/add-list.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavigationComponent,
     FooterComponent,
     ButtonComponent,
+    AddListComponent,
   ],
   imports: [
     BrowserModule,

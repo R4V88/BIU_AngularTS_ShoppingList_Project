@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductPoolComponent} from "../product-pool/product-pool.component";
 import {Router} from "@angular/router";
-import {IProduct} from "../product/product";
+import {IProduct} from "../entity/product";
 import {Subscription} from "rxjs";
-import {ProductService} from "../product/product.service";
+import {ProductService} from "../services/product.service";
 
 @Component({
   selector: 'app-products-list',
