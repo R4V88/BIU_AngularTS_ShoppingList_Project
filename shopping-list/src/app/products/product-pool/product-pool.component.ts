@@ -5,54 +5,50 @@ import {ProductService} from "../product/product.service";
 import {Router} from "@angular/router";
 
 
+
 @Component({
   selector: 'app-product-pool',
   templateUrl: './product-pool.component.html',
   styleUrls: ['./product-pool.component.css']
 })
-export class ProductPoolComponent implements OnInit, OnDestroy {
+export class ProductPoolComponent implements OnInit {
 
   pageTitle = 'Product Pool'
-  sub!: Subscription;
+  products: IProduct[] = [];
+
+  // sub!: Subscription;
+
   product!: IProduct;
-
   errorMessage = '';
-  allProducts: IProduct[] = [];
 
-  constructor(private productService: ProductService,
-              private router: Router) {
+  constructor(private productService: ProductService) {
   }
 
   ngOnInit(): void {
-    this.sub = this.productService.getAllProducts().subscribe({
-      next: products => {
-        this.allProducts = products;
-      },
-      error: err => this.errorMessage = err
-    });
+    this.productService.getProducts().subscribe((products) => (this.products = products))
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
+  // ngOnDestroy(): void {
+  //   this.sub.unsubscribe();
+  // }
 
-  addCreatedProduct(newProduct: IProduct) {
-    const product: IProduct = {
-      "id": this.getIndex(this.allProducts),
-      "name": newProduct.name,
-      "price": newProduct.price,
-      "amount": newProduct.amount,
-      "sum": newProduct.price * newProduct.amount,
+  addCreatedProduct(product: IProduct) {
+    const newProduct: IProduct = {
+      "id": this.getIndex(this.products),
+      "name": product.name,
+      "price": product.price,
+      "amount": product.amount,
+      "sum": product.price * product.amount,
       "isSelected" : false
     };
-    this.allProducts.push(product);
+    this.productService.addProduct(newProduct).subscribe((product) => this.products.push(product));
   }
 
   getIndex(list: IProduct[]): number{
     return list.length + 1;
   }
 
-  onBack(): void {
-    this.router.navigate(['/welcome'])
-  }
+  // onBack(): void {
+  //   this.router.navigate(['/welcome'])
+  // }
 }

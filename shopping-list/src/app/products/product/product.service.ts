@@ -1,58 +1,42 @@
 import {Injectable} from '@angular/core';
-import {Observable, of, throwError} from "rxjs";
+import {Observable, throwError} from "rxjs";
 import {IProduct} from "./product";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {catchError, map, tap} from "rxjs/operators";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {map} from "rxjs/operators";
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private productUrl = 'api/products/products.json';
+  private apiUrl = 'http://localhost:5000/products'
 
-  private allProducts: Observable<IProduct[]> = this.getProducts();
-
-  constructor(private http: HttpClient) { }
-
-  getAllProducts(): Observable<IProduct[]> {
-      return this.allProducts.pipe(
-      tap(data => console.log('All: ', JSON.stringify(data))),
-      catchError(this.handleError)
-    )
-
+  constructor(private http: HttpClient) {
   }
 
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.productUrl)
-      .pipe(
-        tap(data => console.log('All: ', JSON.stringify(data))),
-        catchError(this.handleError)
-      );
+    return this.http.get<IProduct[]>(this.apiUrl)
   }
 
-  getProduct(id: number): Observable<IProduct | undefined> {
-    return this.getAllProducts()
+  getProductById(id: number): Observable<IProduct | undefined> {
+    return this.getProducts()
       .pipe(
         map((products: IProduct[]) => products.find(p => p.id === id))
       );
   }
 
-  getProductByName(name: string): Observable<IProduct | undefined> {
-    return this.getAllProducts()
-      .pipe(
-        map((products: IProduct[]) => products.find(p => p.name === name))
-      )
+  addProduct(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(this.apiUrl, product, httpOptions);
   }
 
-  private handleError(err: HttpErrorResponse): Observable<never> {
-    let errorMessage = '';
-    if (err.error instanceof ErrorEvent) {
-      errorMessage = `An error occurred: ${err.error.message}`;
-    } else {
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
+  updateProduct(product: IProduct): Observable<IProduct> {
+    const url = `${this.apiUrl}/${product.id}`;
+    return this.http.put<IProduct>(url, product, httpOptions);
   }
 }

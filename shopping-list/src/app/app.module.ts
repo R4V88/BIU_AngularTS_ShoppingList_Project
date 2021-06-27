@@ -12,6 +12,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddProductComponent} from './products/product/add-product.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ButtonComponent } from './shared/button/button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     AddProductComponent,
     NavigationComponent,
     FooterComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { FooterComponent } from './shared/footer/footer.component';
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
 
   ],
   providers: [],

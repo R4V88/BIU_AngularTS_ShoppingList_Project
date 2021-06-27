@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {}
 
   getProduct(id: number): void {
-    this.productService.getProduct(id).subscribe({
+    this.productService.getProductById(id).subscribe({
       next: product => this.product = product,
       error: err => this.errorMessage = err
     });

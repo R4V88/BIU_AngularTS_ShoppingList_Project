@@ -5,42 +5,81 @@
       "name": "Onion",
       "price": 0.89,
       "amount": 1,
-      "sum": 0.89
+      "sum": 0.89,
+      "isSelected": false
     },
     {
       "id": 2,
       "name": "Potato",
       "price": 1,
       "amount": 1,
-      "sum": 1
+      "sum": 1,
+      "isSelected": false
     },
     {
       "id": 3,
       "name": "Tomato",
       "price": 1.25,
       "amount": 1,
-      "sum": 1.25
+      "sum": 1.25,
+      "isSelected": false
     },
     {
       "id": 4,
       "name": "Bread",
       "price": 2.58,
       "amount": 1,
-      "sum": 2.58
+      "sum": 2.58,
+      "isSelected": false
     },
     {
       "id": 5,
       "name": "Butter",
       "price": 5,
       "amount": 1,
-      "sum": 5
+      "sum": 5,
+      "isSelected": false
     },
     {
       "id": 6,
       "name": "roll",
       "price": 0.69,
       "amount": 1,
-      "sum": 0.69
+      "sum": 0.69,
+      "isSelected": false
+    },
+    {
+      "id": 7,
+      "name": "name",
+      "price": "1",
+      "amount": "1",
+      "sum": 1,
+      "isSelected": false
+    },
+    {
+      "id": 8,
+      "name": "dupa",
+      "price": "1",
+      "amount": "4",
+      "sum": 4,
+      "isSelected": false
+    },
+    {
+      "id": 9,
+      "name": "cyrk",
+      "price": "2",
+      "amount": "1",
+      "sum": 2,
+      "isSelected": false
+    },
+    {
+      "id": 10,
+      "name": "cyrk inny",
+      "price": "2.13",
+      "amount": "4",
+      "sum": 8.52,
+      "isSelected": false
     }
-  ]
+  ],
+  "lists": []
 }

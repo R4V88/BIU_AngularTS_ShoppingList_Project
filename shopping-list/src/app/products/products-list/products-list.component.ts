@@ -21,8 +21,12 @@ export class ProductsListComponent implements OnInit {
   constructor(private router: Router, private productService: ProductService) {
   }
 
+  toggleAddProduct(){
+    console.log('toggle');
+  }
+
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe((products) => this.products = products);
+    this.productService.getProducts().subscribe((products) => this.products = products);
   }
 
   onBack(): void {

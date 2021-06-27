@@ -6,16 +6,16 @@
 
     <div class='table-responsive'>
       <table class='table'
-             *ngIf='allProducts.length'>
+             *ngIf='products.length'>
         <thead>
         <tr>
           <th>Product</th>
           <th>Amount</th>
-          <th>Price</th>
+          <th>Price / 1 prod.</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let product of allProducts'>
+        <tr *ngFor='let product of products'>
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
           <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>

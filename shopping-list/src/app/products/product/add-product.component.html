@@ -1,4 +1,4 @@
-<form novalidate (ngSubmit)="onSubmit()">
+<form>
   <h4>Add product: </h4>
   <div class="form-group">
     <label for="name">Name: </label>
@@ -12,5 +12,5 @@
     <label for="amount">Amount: </label>
     <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="amount">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <app-button color="green" text="Submit" (btnClick)="onSubmit()"></app-button>
 </form>
