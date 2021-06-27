@@ -58,24 +58,25 @@
     },
     {
       "id": 8,
-      "name": "dupa",
-      "price": "1",
-      "amount": "4",
-      "sum": 4,
+      "name": "srame",
+      "price": "2",
+      "amount": "21",
+      "sum": 42,
       "isSelected": false
     }
   ],
   "lists": [
     {
       "id": 1,
-      "products" : [{
-        "id": 1,
-        "name": "Onion",
-        "price": 0.89,
-        "amount": 1,
-        "sum": 0.89,
-        "isSelected": false
-      },
+      "products": [
+        {
+          "id": 1,
+          "name": "Onion",
+          "price": 0.89,
+          "amount": 1,
+          "sum": 0.89,
+          "isSelected": false
+        },
         {
           "id": 2,
           "name": "Potato",
@@ -91,11 +92,11 @@
           "amount": 1,
           "sum": 1.25,
           "isSelected": false
-        }],
+        }
+      ],
       "selectedPrice": 0,
       "unselectedPrice": 3.14,
       "totalPrice": 3.14
     }
   ]
 }
-

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductPoolComponent} from "../product-pool/product-pool.component";
 import {Router} from "@angular/router";
 import {IProduct} from "../entity/product";
 import {Subscription} from "rxjs";
@@ -15,22 +14,16 @@ export class ProductsListComponent implements OnInit {
 
   pageTitle = "Products List";
   errorMessage = '';
-  products: IProduct[] = []
-  sub!: Subscription;
+  products: IProduct[] = [];
 
-  constructor(private router: Router, private productService: ProductService) {
+  constructor(private productService: ProductService) {
   }
 
-  toggleAddProduct(){
+  toggleAddProduct() {
     console.log('toggle');
   }
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => this.products = products);
   }
-
-  onBack(): void {
-    this.router.navigate(['/welcome'])
-  }
-
 }

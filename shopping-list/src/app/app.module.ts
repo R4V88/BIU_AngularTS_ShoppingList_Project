@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ButtonComponent } from './shared/button/button.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddListComponent } from './products/products-list/add-list/add-list.component';
+import { ListItemComponent } from './products/products-list/list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AddListComponent } from './products/products-list/add-list/add-list.com
     FooterComponent,
     ButtonComponent,
     AddListComponent,
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,5 +49,4 @@ import { AddListComponent } from './products/products-list/add-list/add-list.com
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

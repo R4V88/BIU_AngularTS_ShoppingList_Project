@@ -31,6 +31,13 @@ export class ProductService {
       );
   }
 
+  getProductByName(name: string): Observable<IProduct | undefined> {
+    return this.getProducts()
+      .pipe(
+        map((products: IProduct[]) => products.find(p => p.name === name))
+      );
+  }
+
   addProduct(product: IProduct): Observable<IProduct> {
     return this.http.post<IProduct>(this.apiUrl, product, httpOptions);
   }
