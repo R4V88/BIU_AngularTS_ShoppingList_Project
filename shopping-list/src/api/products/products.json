@@ -3,36 +3,42 @@
     "id": 1,
     "name": "Onion",
     "price": 0.89,
-    "amount": 1
+    "amount": 1,
+    "sum": 0.89
   },
   {
     "id": 2,
     "name": "Potato",
     "price": 1,
-    "amount": 1
+    "amount": 1,
+    "sum": 1
   },
   {
     "id": 3,
     "name": "Tomato",
     "price": 1.25,
-    "amount": 1
+    "amount": 1,
+    "sum": 1.25
   },
   {
     "id": 4,
     "name": "Bread",
     "price": 2.58,
-    "amount": 1
+    "amount": 1,
+    "sum": 2.58
   },
   {
     "id": 5,
     "name": "Butter",
     "price": 5,
-    "amount": 1
+    "amount": 1,
+    "sum": 5
   },
   {
     "id": 6,
     "name": "roll",
     "price": 0.69,
-    "amount": 1
+    "amount": 1,
+    "sum": 0.69
   }
 ]

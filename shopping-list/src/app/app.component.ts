@@ -7,4 +7,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   // title = 'shopping-list';
+  //TODO Wydzielic pozostałe 2 komponenty do shared:
+  //TODO NAV
+  //TODO FOOTER
 }

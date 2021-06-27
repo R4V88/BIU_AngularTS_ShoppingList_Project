@@ -7,8 +7,9 @@ import {ProductComponent} from './products/product/product.component';
 import {ProductsListComponent} from './products/products-list/products-list.component';
 import {WelcomeComponent} from "./home/welcome.component";
 import {HttpClientModule} from "@angular/common/http";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AddProductComponent } from './products/product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {FormsModule} from "@angular/forms";
     ProductComponent,
     ProductsListComponent,
     WelcomeComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import {FormsModule} from "@angular/forms";
       {path: 'products', component: ProductPoolComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-    ])
+    ]),
+    ReactiveFormsModule
 
   ],
   providers: [],
