@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 
 
 @Component({
+  selector: 'app-product-pool',
   templateUrl: './product-pool.component.html',
   styleUrls: ['./product-pool.component.css']
 })

@@ -1,0 +1,44 @@
+<div class='card'>
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class="flex-container">
+
+      <div class="flex-child magenta">
+        Flex Column 1
+      </div>
+
+      <div class="flex-child green">
+        <div class='table-responsive'>
+          <table class='table'
+                 *ngIf='products.length'>
+            <thead>
+            <tr>
+              <th>check</th>
+              <th>Product</th>
+              <th>Amount</th>
+              <th>Price</th>
+              <th>Sum</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor='let product of products'>
+<!--              <td><input name="isSelected" type="checkbox"></input>{{product.isSelected}}</td>-->
+              <td>{{ product.name | lowercase }}</td>
+              <td>{{ product.amount }}</td>
+              <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+              <td>{{product.sum}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <div *ngIf='errorMessage'
+       class='alert alert-danger'>
+    Error: {{ errorMessage }}
+  </div>

@@ -9,7 +9,7 @@ import {WelcomeComponent} from "./home/welcome.component";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router"
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { AddProductComponent } from './products/product/add-product.component';
+import {AddProductComponent} from './products/product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { AddProductComponent } from './products/product/add-product.component';
     FormsModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
-      {path: 'products', component: ProductPoolComponent},
+      {path: 'product', component: ProductPoolComponent},
+      {path: 'list', component: ProductsListComponent},
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),

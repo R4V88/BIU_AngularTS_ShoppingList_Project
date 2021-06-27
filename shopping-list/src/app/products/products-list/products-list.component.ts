@@ -1,18 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductPoolComponent} from "../product-pool/product-pool.component";
+import {Router} from "@angular/router";
+import {IProduct} from "../product/product";
+import {Subscription} from "rxjs";
+import {ProductService} from "../product/product.service";
 
 @Component({
   selector: 'app-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css']
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor(private productPool: ProductPoolComponent) {
+
+  pageTitle = "Products List";
+  errorMessage = '';
+  products: IProduct[] = []
+  sub!: Subscription;
+
+  constructor(private router: Router, private productService: ProductService) {
   }
 
   ngOnInit(): void {
-    // this.productPool.allProducts();
+    this.productService.getAllProducts().subscribe((products) => this.products = products);
+  }
+
+  onBack(): void {
+    this.router.navigate(['/welcome'])
   }
 
 }

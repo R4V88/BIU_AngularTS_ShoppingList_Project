@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, throwError} from "rxjs";
+import {Observable, of, throwError} from "rxjs";
 import {IProduct} from "./product";
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {catchError, map, tap} from "rxjs/operators";
@@ -16,16 +16,11 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getAllProducts(): Observable<IProduct[]> {
-    // const productObservable = new Observable(observer => {
-    //   setTimeout(() => {
-    //     observer.next({products : this.allProducts});
-    //   }, 1000);
-    // })
-    // productObservable;
-    return this.allProducts.pipe(
+      return this.allProducts.pipe(
       tap(data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     )
+
   }
 
   getProducts(): Observable<IProduct[]> {
