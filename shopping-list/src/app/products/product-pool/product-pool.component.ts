@@ -1,10 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {IProduct} from "../product/product";
-import {observable, Observable, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {ProductService} from "../product/product.service";
 import {Router} from "@angular/router";
-import {ProductComponent} from "../product/product.component";
-import {IProductAdd} from "../product/product-add";
 
 
 @Component({
@@ -31,21 +29,20 @@ export class ProductPoolComponent implements OnInit, OnDestroy {
       },
       error: err => this.errorMessage = err
     });
-
-    const productObservable = this.productService.getAllProducts();
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  addCreatedProduct(newProduct: IProductAdd) {
+  addCreatedProduct(newProduct: IProduct) {
     const product: IProduct = {
       "id": this.getIndex(this.allProducts),
       "name": newProduct.name,
       "price": newProduct.price,
       "amount": newProduct.amount,
-      "sum": newProduct.price * newProduct.amount
+      "sum": newProduct.price * newProduct.amount,
+      "isSelected" : false
     };
     this.allProducts.push(product);
   }

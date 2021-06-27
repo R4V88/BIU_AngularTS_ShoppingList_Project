@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {IProductAdd} from "./product-add";
+import {IProduct} from "./product";
 
 @Component({
   selector: 'app-add-product',
@@ -7,7 +7,7 @@ import {IProductAdd} from "./product-add";
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  @Output() onAddProduct: EventEmitter<IProductAdd> = new EventEmitter();
+  @Output() onAddProduct: EventEmitter<IProduct> = new EventEmitter();
   name!: string;
   price!: number;
   amount!: number;
