@@ -9,14 +9,14 @@ import {WelcomeComponent} from "./home/welcome.component";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router"
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AddProductComponent} from './products/product/add-product/add-product.component';
+import {AddProductComponent} from './products/product-pool/add-product/add-product.component';
 import {NavigationComponent} from './shared/navigation/navigation.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {ButtonComponent} from './shared/button/button.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AddListComponent} from './products/products-list/add-list/add-list.component';
 import {ListItemComponent} from './products/products-list/list-item/list-item.component';
-import { EditProductComponent } from './products/product/edit-product/edit-product.component';
+import { EditProductComponent } from './products/product-pool/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
