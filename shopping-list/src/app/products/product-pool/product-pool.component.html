@@ -5,13 +5,14 @@
   <div class='card-body'>
 
     <div class='table-responsive'>
-      <table class='table'
-             *ngIf='products.length'>
+      <table *ngIf='products.length'
+             class='table'>
         <thead>
         <tr>
           <th>Product</th>
           <th>Amount</th>
           <th>Price / 1 prod.</th>
+          <th>Total Price</th>
           <th>Delete</th>
         </tr>
         </thead>
@@ -20,11 +21,13 @@
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
           <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-          <td><fa-icon
-            (click)="onDelete(product)"
-            [ngStyle]="{ color: 'red' }"
-            [icon]="faTimes">
-          </fa-icon>
+          <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+          <td>
+            <fa-icon
+              (click)="onDelete(product)"
+              [icon]="faTimes"
+              [ngStyle]="{ color: 'red' }">
+            </fa-icon>
           </td>
         </tr>
         </tbody>

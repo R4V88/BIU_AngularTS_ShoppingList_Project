@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IList} from "../../entity/list";
 import {ListService} from "../../services/list.service";
 
@@ -13,12 +13,14 @@ export class ListItemComponent implements OnInit {
   errorMessage = '';
   lists: IList[] = [];
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService) {
+  }
 
   ngOnInit(): void {
     this.listService.getLists().subscribe((lists) => this.lists = lists);
     console.log(this.lists);
   }
+
   getListUsingTrackBy(index: number, list: IList): number {
     return list.id;
   }

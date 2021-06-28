@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, throwError} from "rxjs";
+import {Observable} from "rxjs";
 import {IProduct} from "../entity/product";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map} from "rxjs/operators";
@@ -24,7 +24,7 @@ export class ProductService {
     return this.http.get<IProduct[]>(this.apiUrl)
   }
 
-  getProductById(id: number): Observable<IProduct | undefined> {
+  getProductById(id: string): Observable<IProduct | undefined> {
     return this.getProducts()
       .pipe(
         map((products: IProduct[]) => products.find(p => p.id === id))

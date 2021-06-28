@@ -7,6 +7,7 @@ import {IProduct} from "../entity/product";
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+
   @Output() onAddProduct: EventEmitter<IProduct> = new EventEmitter();
   name!: string;
   price!: number;

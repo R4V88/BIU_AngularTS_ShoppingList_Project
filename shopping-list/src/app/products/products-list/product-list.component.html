@@ -2,40 +2,61 @@
   <div class='card-header'>
     {{pageTitle}}
   </div>
-  <div class='card-body'>
-    <div class="flex-container">
-
-      <div class="flex-child magenta">
-        Flex Column 1
-      </div>
-
-      <div class="flex-child green">
-        <div class='table-responsive'>
-          <table class='table'
-                 *ngIf='products.length'>
-            <thead>
-            <tr>
-              <th>Product</th>
-              <th>Amount</th>
-              <th>Price</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor='let product of products'>
-              <td>{{ product.name | lowercase }}</td>
-              <td>{{ product.amount }}</td>
-              <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-            </tr>
-            </tbody>
-          </table>
+  <div *ngIf="lists.length">
+    <div class="card-body" *ngFor='let list of lists ,let i = index, trackBy:getListUsingTrackBy'>
+      <div class="flex-container">
+        <div class="flex-child magenta">
+          <div class="table-responsive">
+            <table class='table'>
+              <thead>
+              <tr>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Sum</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let product of list.products">
+                <td>{{ product.name | lowercase }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+                <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+              </tr>
+              </tbody>
+            </table>
+            <span>{{list.selectedPrice}}</span>
+            <span>{{list.unselectedPrice}}</span>
+            <span>{{list.totalPrice}}</span>
+          </div>
+        </div>
+        <div class="flex-child green">
+          <div class='table-responsive'>
+            <table *ngIf='products.length'
+                   class='table'>
+              <thead>
+              <tr>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Price</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor='let product of products'>
+                <td>{{ product.name | lowercase }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
-  <app-button color="green" text="Add List" (btnClick)="toggleAddProduct()"></app-button>
 </div>
-  <div *ngIf='errorMessage'
-       class='alert alert-danger'>
-    Error: {{ errorMessage }}
-  </div>
+<app-button (btnClick)="toggleAddProduct()" color="green" text="Add List"></app-button>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>

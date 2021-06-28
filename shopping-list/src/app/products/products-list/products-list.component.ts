@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
 import {IProduct} from "../entity/product";
-import {Subscription} from "rxjs";
 import {ProductService} from "../services/product.service";
+import {IList} from "../entity/list";
+import {ListService} from "../services/list.service";
 
 @Component({
   selector: 'app-products-list',
@@ -15,8 +15,10 @@ export class ProductsListComponent implements OnInit {
   pageTitle = "Products List";
   errorMessage = '';
   products: IProduct[] = [];
+  lists: IList[] =[];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private listService: ListService) {
   }
 
   toggleAddProduct() {
@@ -25,5 +27,10 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => this.products = products);
+    this.listService.getLists().subscribe((lists) => this.lists = lists);
+  }
+
+  getListUsingTrackBy(index: number, list: IList): number {
+    return list.id;
   }
 }

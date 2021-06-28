@@ -1,27 +1,24 @@
-<div class="container" *ngIf='lists.length'>
-  <div class='table-responsive' *ngFor='let list of lists, let i = index, trackBy:getListUsingTrackBy'>
-
-      <table class='table'>
-        <thead>
-        <tr>
-          <th>Product</th>
-          <th>Amount</th>
-          <th>Price</th>
-          <th>Sum</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let product of list.products">
-          <td>{{ product.name | lowercase }}</td>
-          <td>{{ product.amount }}</td>
-          <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-          <td>{{product.sum}}</td>
-        </tr>
-        </tbody>
-      </table>
-    <span>{{list.selectedPrice}}</span>
-    <span>{{list.unselectedPrice}}</span>
-    <span>{{list.totalPrice}}</span>
+<div *ngIf='lists.length' class="container">
+  <div *ngFor='let list of lists, let i = index, trackBy:getListUsingTrackBy' class='table-responsive'>
+    <table class='table'>
+      <thead>
+      <tr>
+        <th>Product</th>
+        <th>Amount</th>
+        <th>Price</th>
+        <th>Sum</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of list.products">
+        <td>{{ product.name | lowercase }}</td>
+        <td>{{ product.amount }}</td>
+        <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+        <td>{{product.totalPrice}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <h6>Total Price: {{list.totalPrice}}</h6>
   </div>
 </div>
 

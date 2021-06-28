@@ -10,12 +10,12 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router"
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AddProductComponent} from './products/product/add-product.component';
-import { NavigationComponent } from './shared/navigation/navigation.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { ButtonComponent } from './shared/button/button.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AddListComponent } from './products/products-list/add-list/add-list.component';
-import { ListItemComponent } from './products/products-list/list-item/list-item.component';
+import {NavigationComponent} from './shared/navigation/navigation.component';
+import {FooterComponent} from './shared/footer/footer.component';
+import {ButtonComponent} from './shared/button/button.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {AddListComponent} from './products/products-list/add-list/add-list.component';
+import {ListItemComponent} from './products/products-list/list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -49,4 +49,5 @@ import { ListItemComponent } from './products/products-list/list-item/list-item.
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

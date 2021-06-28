@@ -49,25 +49,65 @@
       "isSelected": false
     },
     {
-      "id": 7,
-      "name": "name",
-      "price": "1",
-      "amount": "1",
-      "sum": 1,
-      "isSelected": false
-    },
-    {
       "id": 8,
       "name": "srame",
       "price": "2",
       "amount": "21",
       "sum": 42,
       "isSelected": false
+    },
+    {
+      "id": "_599g6kblj",
+      "name": "ascs",
+      "price": "2",
+      "amount": "3",
+      "totalPrice": 6,
+      "isSelected": false
+    },
+    {
+      "id": "_8gjbyf1f5",
+      "name": "xddhd",
+      "price": "2",
+      "amount": "4",
+      "totalPrice": 8,
+      "isSelected": false
     }
   ],
   "lists": [
     {
       "id": 1,
+      "products": [
+        {
+          "id": 1,
+          "name": "Onion",
+          "price": 0.89,
+          "amount": 1,
+          "sum": 0.89,
+          "isSelected": false
+        },
+        {
+          "id": 2,
+          "name": "Potato",
+          "price": 1,
+          "amount": 1,
+          "sum": 1,
+          "isSelected": false
+        },
+        {
+          "id": 3,
+          "name": "Tomato",
+          "price": 1.25,
+          "amount": 1,
+          "sum": 1.25,
+          "isSelected": false
+        }
+      ],
+      "selectedPrice": 0,
+      "unselectedPrice": 3.14,
+      "totalPrice": 3.14
+    },
+    {
+      "id": 2,
       "products": [
         {
           "id": 1,

@@ -1,8 +1,8 @@
 export interface IProduct {
-  id?: number;
+  id?: string;
   name: string;
   price: number;
   amount: number;
-  sum?: number;
+  totalPrice?: number;
   isSelected?: boolean;
 }
