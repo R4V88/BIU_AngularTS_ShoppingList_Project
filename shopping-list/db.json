@@ -5,71 +5,70 @@
       "name": "Onion",
       "price": 0.89,
       "amount": 1,
-      "sum": 0.89,
-      "isSelected": false
+      "totalPrice": 0.89
     },
     {
       "id": 2,
       "name": "Potato",
       "price": 1,
       "amount": 1,
-      "sum": 1,
-      "isSelected": false
+      "totalPrice": 1
     },
     {
       "id": 3,
       "name": "Tomato",
       "price": 1.25,
       "amount": 1,
-      "sum": 1.25,
-      "isSelected": false
+      "totalPrice": 1.25
     },
     {
       "id": 4,
       "name": "Bread",
       "price": 2.58,
       "amount": 1,
-      "sum": 2.58,
-      "isSelected": false
+      "totalPrice": 2.58
     },
     {
       "id": 5,
       "name": "Butter",
       "price": 5,
       "amount": 1,
-      "sum": 5,
-      "isSelected": false
+      "totalPrice": 5
     },
     {
       "id": 6,
       "name": "roll",
       "price": 0.69,
       "amount": 1,
-      "sum": 0.69,
-      "isSelected": false
+      "totalPrice": 0.69
     },
     {
       "id": 8,
       "name": "srame",
       "price": "2",
       "amount": "21",
-      "sum": 42,
-      "isSelected": false
+      "totalPrice": 42
     },
     {
       "id": "_599g6kblj",
       "name": "ascs",
       "price": "2",
       "amount": "3",
-      "totalPrice": 6,
-      "isSelected": false
+      "totalPrice": 6
     },
     {
       "id": "_8gjbyf1f5",
       "name": "xddhd",
       "price": "2",
       "amount": "4",
-      "totalPrice": 8,
+      "totalPrice": 8
+    },
+    {
+      "id": "_5p3ezivy4",
+      "name": "asdfa",
+      "price": "2",
+      "amount": "3",
+      "totalPrice": 6,
       "isSelected": false
     }
   ],
@@ -82,7 +81,7 @@
           "name": "Onion",
           "price": 0.89,
           "amount": 1,
-          "sum": 0.89,
+          "totalPrice": 0.89,
           "isSelected": false
         },
         {
@@ -90,7 +89,7 @@
           "name": "Potato",
           "price": 1,
           "amount": 1,
-          "sum": 1,
+          "totalPrice": 1,
           "isSelected": false
         },
         {
@@ -98,7 +97,7 @@
           "name": "Tomato",
           "price": 1.25,
           "amount": 1,
-          "sum": 1.25,
+          "totalPrice": 1.25,
           "isSelected": false
         }
       ],
@@ -114,7 +113,7 @@
           "name": "Onion",
           "price": 0.89,
           "amount": 1,
-          "sum": 0.89,
+          "totalPrice": 0.89,
           "isSelected": false
         },
         {
@@ -122,7 +121,7 @@
           "name": "Potato",
           "price": 1,
           "amount": 1,
-          "sum": 1,
+          "totalPrice": 1,
           "isSelected": false
         },
         {
@@ -130,7 +129,7 @@
           "name": "Tomato",
           "price": 1.25,
           "amount": 1,
-          "sum": 1.25,
+          "totalPrice": 1.25,
           "isSelected": false
         }
       ],

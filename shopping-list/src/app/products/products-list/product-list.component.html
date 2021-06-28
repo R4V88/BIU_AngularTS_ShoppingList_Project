@@ -12,8 +12,8 @@
               <tr>
                 <th>Product</th>
                 <th>Amount</th>
-                <th>Price</th>
-                <th>Sum</th>
+                <th>Price / 1 prod.</th>
+                <th>Total</th>
               </tr>
               </thead>
               <tbody>
@@ -25,9 +25,9 @@
               </tr>
               </tbody>
             </table>
-            <span>{{list.selectedPrice}}</span>
-            <span>{{list.unselectedPrice}}</span>
-            <span>{{list.totalPrice}}</span>
+            <h6>Unselected products price: {{list.selectedPrice}}</h6>
+            <h6>Selected products price: {{list.unselectedPrice}}</h6>
+            <h6>Total price: {{list.totalPrice}}</h6>
           </div>
         </div>
         <div class="flex-child green">
@@ -38,7 +38,8 @@
               <tr>
                 <th>Product</th>
                 <th>Amount</th>
-                <th>Price</th>
+                <th>Price / 1 prod.</th>
+                <th>Total</th>
               </tr>
               </thead>
               <tbody>
@@ -46,6 +47,7 @@
                 <td>{{ product.name | lowercase }}</td>
                 <td>{{ product.amount }}</td>
                 <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+                <td>{{ product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
               </tr>
               </tbody>
             </table>

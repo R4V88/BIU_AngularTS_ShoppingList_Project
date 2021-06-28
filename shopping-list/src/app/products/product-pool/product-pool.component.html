@@ -13,15 +13,23 @@
           <th>Amount</th>
           <th>Price / 1 prod.</th>
           <th>Total Price</th>
+          <th>Edit</th>
           <th>Delete</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let product of products'>
+        <tr *ngFor='let product of products' [class.selected]="product === productToSend">
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
           <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
           <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+          <td>
+            <fa-icon
+              (click)="onEdit(product)"
+              [icon]="faPencil"
+              [ngStyle]="{ color: 'blue' }">
+            </fa-icon>
+          </td>
           <td>
             <fa-icon
               (click)="onDelete(product)"
@@ -33,8 +41,13 @@
         </tbody>
       </table>
     </div>
-    <div class="container">
-      <app-add-product (onAddProduct)="addCreatedProduct($event)"></app-add-product>
+    <div class="flex-container">
+      <div class="flex-child magenta">
+        <app-add-product (onAddProduct)="addCreatedProduct($event)"></app-add-product>
+      </div>
+      <div class="flex-child green">
+        <app-edit-product [selectedProduct]="productToSend"></app-edit-product>
+      </div>
     </div>
   </div>
 </div>

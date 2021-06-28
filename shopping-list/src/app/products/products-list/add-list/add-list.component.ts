@@ -11,9 +11,10 @@ export class AddListComponent implements OnInit {
 
   @Output() onAddList: EventEmitter<IList> = new EventEmitter();
   products!: IProduct[];
-  selectedPrice!: number;
-  unselectedPrice!: number;
   totalPrice!: number;
+  name!: string;
+  price!: string;
+  amount!: string;
 
   constructor() {
   }
@@ -23,7 +24,11 @@ export class AddListComponent implements OnInit {
 
   onSubmit() {
     const newList = {
-      "products": this.products,
+      "products": [{
+        "name": this.name,
+        "price": this.price,
+        "amount": this.price,
+      }],
     }
 
     // this.onAddList.emit(newList);

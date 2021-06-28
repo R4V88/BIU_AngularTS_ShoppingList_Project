@@ -3,6 +3,7 @@ import {IProduct} from "../entity/product";
 import {ProductService} from "../services/product.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 import {IdGeneratorService} from "../services/id-generator.service";
+import {faPencilRuler} from "@fortawesome/free-solid-svg-icons/faPencilRuler";
 
 @Component({
   selector: 'app-product-pool',
@@ -15,8 +16,13 @@ export class ProductPoolComponent implements OnInit {
   products: IProduct[] = [];
   errorMessage = '';
   faTimes = faTimes;
+  faPencil = faPencilRuler;
 
-  @Input() product!: IProduct;
+  //product sending to product edit component
+  productToSend!: IProduct;
+
+  @Input() productToAdd!: IProduct;
+  @Input() productToEdit!: IProduct;
 
   constructor(private productService: ProductService,
               private idGenerator: IdGeneratorService) {
@@ -38,6 +44,10 @@ export class ProductPoolComponent implements OnInit {
     this.productService.addProduct(newProduct).subscribe((product) => this.products.push(product));
   }
 
+  editSelectedProduct(product: IProduct) {
+    this.productService.updateProduct(product).subscribe((product) => this.products.push(product));
+  }
+
   getLastItemIndex(list: IProduct[]): number {
     return list.length + 1;
   }
@@ -46,5 +56,9 @@ export class ProductPoolComponent implements OnInit {
     this.productService
       .deleteProduct(product)
       .subscribe(() => (this.products = this.products.filter((p: IProduct) => p.id !== product.id)))
+  }
+
+  onEdit(product: IProduct): void{
+    this.productToSend = product;
   }
 }

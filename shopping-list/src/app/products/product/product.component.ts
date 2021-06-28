@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IProduct} from "../entity/product";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 
@@ -8,15 +8,30 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 })
 export class ProductComponent implements OnInit {
 
-  @Input() product!: IProduct;
-  @Output() onDeleteTask: EventEmitter<IProduct> = new EventEmitter();
-
   faTimes = faTimes;
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(name: string, amount: number, price: number): IProduct {
+    if (name.length <= 2) {
+      alert('Please add a correct name!');
+    }
+    if (amount <= 0) {
+      alert('Please enter correct amount!');
+    }
+    if (price <= 0) {
+      alert('Please enter correct value!');
+    }
+
+    return {
+      "name": name,
+      "price": price,
+      "amount": amount
+    };
   }
 
 }
