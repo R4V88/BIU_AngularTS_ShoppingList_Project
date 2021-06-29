@@ -10,11 +10,13 @@ import {IProduct} from "../../entity/product";
 export class AddListComponent implements OnInit {
 
   @Output() onAddList: EventEmitter<IList> = new EventEmitter();
+  lists!: IList[];
+  title!: string;
+  id!: number;
   products!: IProduct[];
-  totalPrice!: number;
-  name!: string;
-  price!: string;
-  amount!: string;
+  selectedPrice: number = 0;
+  unselectedPrice: number = 0;
+  totalPrice: number = 0;
 
   constructor() {
   }
@@ -22,17 +24,17 @@ export class AddListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
-    const newList = {
-      "products": [{
-        "name": this.name,
-        "price": this.price,
-        "amount": this.price,
-      }],
-    }
+  // onSubmit() {
+  //   const newList = {
+  //     "products": [{
+  //       "name": this.name,
+  //       "price": this.price,
+  //       "amount": this.price,
+  //     }],
+  //   }
+  // }
 
-    // this.onAddList.emit(newList);
-    //TODO Wysłać do product-list. component
+  toggleAddList() {
+
   }
-
 }

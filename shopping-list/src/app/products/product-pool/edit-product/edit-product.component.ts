@@ -25,29 +25,8 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   editProduct() {
-
-    // if(this.name.length){
-    //   return this.name;
-    // } else {
-    //   return this.selectedProduct.name;
-    // }
-    //
-    // if(this.amount != 0){
-    //   return this.amount;
-    // } else {
-    //   return this.selectedProduct.amount;
-    // }
-    //
-    // if(this.name.length){
-    //   return this.name;
-    // } else {
-    //   return this.selectedProduct.name;
-    // }
-
-
-    const editedProduct: IProduct = {
+     const editedProduct: IProduct = {
       "id": this.selectedProduct.id,
       "name": this.name,
       "price": this.price,
@@ -57,6 +36,8 @@ export class EditProductComponent implements OnInit {
     }
     this.onEditProduct.emit(editedProduct);
   }
+
+  //force reload page component after Product update.
   reloadCurrentPage() {
     window.location.reload();
   }

@@ -2,37 +2,15 @@
   <div class='card-header'>
     {{pageTitle}}
   </div>
-  <div *ngIf="lists.length">
-    <div class="card-body" *ngFor='let list of lists ,let i = index, trackBy:getListUsingTrackBy'>
+  <div>
+    <div class="card-body">
       <div class="flex-container">
         <div class="flex-child magenta">
-          <div class="table-responsive">
-            <table class='table'>
-              <thead>
-              <tr>
-                <th>Product</th>
-                <th>Amount</th>
-                <th>Price / 1 prod.</th>
-                <th>Total</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let product of list.products">
-                <td>{{ product.name | lowercase }}</td>
-                <td>{{ product.amount }}</td>
-                <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-                <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-              </tr>
-              </tbody>
-            </table>
-            <h6>Unselected products price: {{list.selectedPrice}}</h6>
-            <h6>Selected products price: {{list.unselectedPrice}}</h6>
-            <h6>Total price: {{list.totalPrice}}</h6>
-          </div>
+          <app-add-list></app-add-list>
         </div>
         <div class="flex-child green">
           <div class='table-responsive'>
-            <table *ngIf='products.length'
+            <table *ngIf='productsToChoose.length'
                    class='table'>
               <thead>
               <tr>
@@ -43,7 +21,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor='let product of products'>
+              <tr *ngFor='let product of productsToChoose'>
                 <td>{{ product.name | lowercase }}</td>
                 <td>{{ product.amount }}</td>
                 <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
@@ -57,7 +35,6 @@
     </div>
   </div>
 </div>
-<app-button (btnClick)="toggleAddProduct()" color="green" text="Add List"></app-button>
 <div *ngIf='errorMessage'
      class='alert alert-danger'>
   Error: {{ errorMessage }}
