@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IList} from "../../entity/list";
 import {IProduct} from "../../entity/product";
+import {Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-add-list',
@@ -15,10 +16,7 @@ export class AddListComponent implements OnInit {
   lists!: IList[];
   title!: string;
   id!: number;
-  products!: IProduct[];
-  // name!: string;
-  // price!: number;
-  // amount!: number;
+  products: IProduct[] = [];
   selectedPrice!: number;
   unselectedPrice!: number;
   totalPrice!: number;
@@ -29,18 +27,15 @@ export class AddListComponent implements OnInit {
       name: '',
       price: 0
     }
-    console.log("Received Product" + this.selectedProduct.name);
-  }
-
-  addReceivedProduct(): void {
-    if(this.selectedProduct) {
-      this.products.push(this.selectedProduct);
-    }
-    console.log(this.products);
+    this.products.push(this.selectedProduct)
+    this.getProducts().subscribe((products) => this.products = products);
   }
 
   ngOnInit(): void {
-    this.addReceivedProduct()
+  }
+
+  getProducts(): Observable<IProduct[]> {
+    return of(this.products);
   }
 
   // onSubmit() {
@@ -56,4 +51,6 @@ export class AddListComponent implements OnInit {
   toggleAddList() {
 
   }
+
+
 }
