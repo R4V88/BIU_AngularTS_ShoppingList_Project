@@ -12,17 +12,23 @@ export class ProductsListComponent implements OnInit {
 
   pageTitle = "Products List";
   errorMessage = '';
-  productsToChoose: IProduct[] = [];
+  products: IProduct[] = [];
+  productToSend!: IProduct;
 
   constructor(private productService: ProductService,
               private listService: ListService) {
   }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((products) => this.productsToChoose = products);
+    this.productService.getProducts().subscribe((products) => this.products = products);
   }
 
   getListUsingTrackBy(index: number, list: IList): number {
     return list.id;
+  }
+
+  onSelected(product: IProduct): void{
+    this.productToSend = product;
+    console.log("Product to send: " + this.productToSend.name);
   }
 }

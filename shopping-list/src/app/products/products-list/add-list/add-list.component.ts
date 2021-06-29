@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IList} from "../../entity/list";
 import {IProduct} from "../../entity/product";
 
@@ -9,19 +9,38 @@ import {IProduct} from "../../entity/product";
 })
 export class AddListComponent implements OnInit {
 
-  @Output() onAddList: EventEmitter<IList> = new EventEmitter();
+  // @Output() onAddList: EventEmitter<IList> = new EventEmitter();
+  @Input() selectedProduct!: IProduct;
+
   lists!: IList[];
   title!: string;
   id!: number;
   products!: IProduct[];
-  selectedPrice: number = 0;
-  unselectedPrice: number = 0;
-  totalPrice: number = 0;
+  // name!: string;
+  // price!: number;
+  // amount!: number;
+  selectedPrice!: number;
+  unselectedPrice!: number;
+  totalPrice!: number;
 
   constructor() {
+    this.selectedProduct = {
+      amount: 0,
+      name: '',
+      price: 0
+    }
+    console.log("Received Product" + this.selectedProduct.name);
+  }
+
+  addReceivedProduct(): void {
+    if(this.selectedProduct) {
+      this.products.push(this.selectedProduct);
+    }
+    console.log(this.products);
   }
 
   ngOnInit(): void {
+    this.addReceivedProduct()
   }
 
   // onSubmit() {

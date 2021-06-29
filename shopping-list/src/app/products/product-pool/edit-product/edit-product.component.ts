@@ -11,8 +11,8 @@ export class EditProductComponent implements OnInit {
   name!: string;
   price!: number;
   amount!: number;
-  @Input() selectedProduct!: IProduct;
   @Output() onEditProduct: EventEmitter<IProduct> = new EventEmitter();
+  @Input() selectedProduct!: IProduct;
 
   constructor() {
     this.selectedProduct = {
