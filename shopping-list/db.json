@@ -58,17 +58,18 @@
     },
     {
       "id": "_8gjbyf1f5",
-      "name": "xddhd",
-      "price": "2",
-      "amount": "4",
-      "totalPrice": 8
+      "name": "xddhdd",
+      "price": "3",
+      "amount": "3",
+      "totalPrice": 8,
+      "isSelected": false
     },
     {
       "id": "_5p3ezivy4",
-      "name": "asdfa",
+      "name": "de",
       "price": "2",
-      "amount": "3",
-      "totalPrice": 6,
+      "amount": "4",
+      "totalPrice": 8,
       "isSelected": false
     }
   ],

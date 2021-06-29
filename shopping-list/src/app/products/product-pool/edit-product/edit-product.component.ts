@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IProduct} from "../../entity/product";
 
 @Component({
@@ -12,10 +12,7 @@ export class EditProductComponent implements OnInit {
   price!: number;
   amount!: number;
   @Input() selectedProduct!: IProduct;
-
-  // @Output() onEditProduct: EventEmitter<IProduct> = new EventEmitter();
-  // oldProductArray: any[] = this.getOldProductProperties();
-  // oldName: string = this.oldProductArray[1];
+  @Output() onEditProduct: EventEmitter<IProduct> = new EventEmitter();
 
   constructor() {
     this.selectedProduct = {
@@ -23,30 +20,44 @@ export class EditProductComponent implements OnInit {
       name: '',
       price: 0
     }
-    // this.oldName = this.selectedProduct?.name;
-    // console.log(this.selectedProduct.id)
   }
 
   ngOnInit(): void {
   }
 
-  // getOldProductProperties(): any[] {
-  //   for (let o in this.selectedProduct) {
-  //     this.oldProductArray.push(this.o);
-  //   }
-  // }
+
+  editProduct() {
+
+    // if(this.name.length){
+    //   return this.name;
+    // } else {
+    //   return this.selectedProduct.name;
+    // }
+    //
+    // if(this.amount != 0){
+    //   return this.amount;
+    // } else {
+    //   return this.selectedProduct.amount;
+    // }
+    //
+    // if(this.name.length){
+    //   return this.name;
+    // } else {
+    //   return this.selectedProduct.name;
+    // }
 
 
-  // editProduct() {
-  //   // const newProduct: IProduct = this.selectedProduct
-  //   const editedProduct: IProduct = {
-  //     "id": this.oldProduct.id,
-  //     "name": product.name,
-  //     "price": product.price,
-  //     "amount": product.amount,
-  //     "totalPrice": product.price * product.amount,
-  //     "isSelected": false
-  //   }
-  //   this.onEditProduct.emit(editedProduct);
-  // }
+    const editedProduct: IProduct = {
+      "id": this.selectedProduct.id,
+      "name": this.name,
+      "price": this.price,
+      "amount": this.amount,
+      "totalPrice": this.price * this.amount,
+      "isSelected": false
+    }
+    this.onEditProduct.emit(editedProduct);
+  }
+  reloadCurrentPage() {
+    window.location.reload();
+  }
 }

@@ -12,5 +12,5 @@
     <label for="amount">Amount: </label>
     <input [(ngModel)]="amount" class="form-control" id="amount" name="amount" type="text" placeholder="{{selectedProduct?.amount}}">
   </div>
-  <app-button color="green" text="Submit"></app-button>
+  <app-button (btnClick)="editProduct()" (click)="reloadCurrentPage()" color="green" text="Submit"></app-button>
 </form>

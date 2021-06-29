@@ -46,7 +46,7 @@
         <app-add-product (onAddProduct)="addCreatedProduct($event)"></app-add-product>
       </div>
       <div class="flex-child green">
-        <app-edit-product [selectedProduct]="productToSend"></app-edit-product>
+        <app-edit-product (onEditProduct)="editSelectedProduct($event)" [selectedProduct]="productToSend"></app-edit-product>
       </div>
     </div>
   </div>

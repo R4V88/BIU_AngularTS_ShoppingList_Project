@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ChangeDetectorRef} from '@angular/core';
 import {IProduct} from "../entity/product";
 import {ProductService} from "../services/product.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
@@ -45,7 +45,7 @@ export class ProductPoolComponent implements OnInit {
   }
 
   editSelectedProduct(product: IProduct) {
-    this.productService.updateProduct(product).subscribe((product) => this.products.push(product));
+    this.productService.updateProduct(product).subscribe();
   }
 
   getLastItemIndex(list: IProduct[]): number {
