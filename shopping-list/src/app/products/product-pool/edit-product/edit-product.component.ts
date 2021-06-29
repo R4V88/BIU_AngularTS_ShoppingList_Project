@@ -11,13 +11,19 @@ export class EditProductComponent implements OnInit {
   name!: string;
   price!: number;
   amount!: number;
-  @Input() selectedProduct = <any>{};
+  @Input() selectedProduct!: IProduct;
 
   // @Output() onEditProduct: EventEmitter<IProduct> = new EventEmitter();
   // oldProductArray: any[] = this.getOldProductProperties();
   // oldName: string = this.oldProductArray[1];
 
   constructor() {
+    this.selectedProduct = {
+      amount: 0,
+      name: '',
+      price: 0
+    }
+    // this.oldName = this.selectedProduct?.name;
     // console.log(this.selectedProduct.id)
   }
 

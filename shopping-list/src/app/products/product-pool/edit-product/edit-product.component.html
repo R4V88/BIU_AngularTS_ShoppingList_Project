@@ -2,15 +2,15 @@
   <h4>Edit product (click to select product): </h4>
   <div class="form-group">
     <label for="name">Name: </label>
-    <input [(ngModel)]="name" class="form-control" id="name" name="name" type="text" placeholder="{{selectedProduct.name}}">
+    <input [(ngModel)]="name" class="form-control" id="name" name="name" type="text" placeholder="{{selectedProduct?.name}}">
   </div>
   <div class="form-group">
     <label for="price">Price: </label>
-    <input [(ngModel)]="price" class="form-control" id="price" name="price" type="text">
+    <input [(ngModel)]="price" class="form-control" id="price" name="price" type="text" placeholder="{{selectedProduct?.price}}">
   </div>
   <div class="form-group">
     <label for="amount">Amount: </label>
-    <input [(ngModel)]="amount" class="form-control" id="amount" name="amount" type="text">
+    <input [(ngModel)]="amount" class="form-control" id="amount" name="amount" type="text" placeholder="{{selectedProduct?.amount}}">
   </div>
   <app-button color="green" text="Submit"></app-button>
 </form>
