@@ -3,6 +3,7 @@ import {IProduct} from "../entity/product";
 import {ProductService} from "../services/product.service";
 import {IList} from "../entity/list";
 import {ListService} from "../services/list.service";
+import {UserTempListService} from "../services/user-temp-list.service";
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -13,10 +14,18 @@ export class ProductsListComponent implements OnInit {
   pageTitle = "Products List";
   errorMessage = '';
   products: IProduct[] = [];
-  productToSend!: IProduct;
 
   constructor(private productService: ProductService,
-              private listService: ListService) {
+              private listService: ListService,
+              private userList: UserTempListService) {
+  }
+
+  sendProduct(product: IProduct): void {
+    this.userList.sendProduct(product);
+  }
+
+  clearProduct(): void {
+    this.userList.clearProduct();
   }
 
   ngOnInit(): void {
@@ -25,10 +34,5 @@ export class ProductsListComponent implements OnInit {
 
   getListUsingTrackBy(index: number, list: IList): number {
     return list.id;
-  }
-
-  onSelected(product: IProduct): void{
-    this.productToSend = product;
-    console.log("Product to send: " + this.productToSend.name);
   }
 }

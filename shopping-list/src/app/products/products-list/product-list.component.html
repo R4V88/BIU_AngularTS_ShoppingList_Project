@@ -6,7 +6,7 @@
     <div class="card-body">
       <div class="flex-container">
         <div class="flex-child magenta">
-          <app-add-list [selectedProduct]="productToSend"></app-add-list>
+          <app-add-list></app-add-list>
         </div>
         <div class="flex-child green">
           <div class='table-responsive'>
@@ -21,7 +21,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor='let product of products' (click)="onSelected(product)">
+              <tr *ngFor='let product of products' (click)="sendProduct(product)">
                 <td>{{ product.name | lowercase }}</td>
                 <td>{{ product.amount }}</td>
                 <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>

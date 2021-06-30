@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IList} from "../../entity/list";
 import {IProduct} from "../../entity/product";
-import {Observable, of, Subscription} from "rxjs";
+import {Subject, Subscription} from "rxjs";
+import {UserTempListService} from "../../services/user-temp-list.service";
 
 @Component({
   selector: 'app-add-list',
@@ -11,57 +12,40 @@ import {Observable, of, Subscription} from "rxjs";
 export class AddListComponent implements OnInit {
 
   // @Output() onAddList: EventEmitter<IList> = new EventEmitter();
-  @Input() selectedProduct!: IProduct;
 
   lists!: IList[];
   title!: string;
   id!: number;
-  products!: IProduct[];
+
+  products: IProduct[] = [];
+  subscription!: Subscription;
+
   selectedPrice!: number;
   unselectedPrice!: number;
   totalPrice!: number;
-  sub!: Subscription;
+
   errorMessage: string = '';
 
 
-  constructor() {
-    this.selectedProduct = {
-      "id": '',
-      "name": '',
-      "price": 0,
-      "amount": 0,
-      "totalPrice": 0,
-      "isSelected": false
-    }
-    this.products.push(this.selectedProduct);
-  }
-  ngOnInit(): void {
-    this.sub = this.getProducts().subscribe({
-      next: products => {
-        this.products = products;
-      },
-      error: err => this.errorMessage = err
-    });
-    // this.getProducts().subscribe((products) => this.products = products);
+  constructor(private userList: UserTempListService) {
+    this.subscription = this.userList.onProduct().subscribe(product => {
+      if(product) {
+        this.products.push(product);
+      } else {
+        this.products = [];
+      }
+    })
   }
 
-  getProducts(): Observable<IProduct[]> {
-    return of(this.products);
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
-  // onSubmit() {
-  //   const newList = {
-  //     "products": [{
-  //       "name": this.name,
-  //       "price": this.price,
-  //       "amount": this.price,
-  //     }],
-  //   }
-  // }
+  ngOnInit(): void {}
 
   toggleAddList() {
     console.log("toggle");
   }
 
-
 }
+
