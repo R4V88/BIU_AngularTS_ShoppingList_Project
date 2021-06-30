@@ -49,13 +49,12 @@ export class AddListComponent implements OnInit {
     this.products.splice(index,1);
   }
 
-  // deleteProduct() {
-  //   this.products.splice(this.prodIndex);
-  // }
-
-
-  toggleAddList() {
+  addList() {
     console.log("toggle");
+  }
+
+  selectProduct($event: Event, i: number){
+    this.products[i].isSelected = !this.products[i].isSelected;
   }
 
 }
