@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IList} from "../../entity/list";
 import {IProduct} from "../../entity/product";
 import {Subscription} from "rxjs";
 import {UserTempListService} from "../../services/user-temp-list.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
+import {ListService} from "../../services/list.service";
+import {IdGeneratorService} from "../../services/id-generator.service";
 
 
 @Component({
@@ -12,8 +14,6 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
   styleUrls: ['./add-list.component.css']
 })
 export class AddListComponent implements OnInit {
-
-  // @Output() onAddList: EventEmitter<IList> = new EventEmitter();
 
   lists!: IList[];
   title!: string;
@@ -27,9 +27,14 @@ export class AddListComponent implements OnInit {
   unselectedPrice: number = 0;
 
   errorMessage: string = '';
-  faTimes = faTimes;
+  faTimes = faTimes
 
-  constructor(private userList: UserTempListService) {
+  @Output() onAddList: EventEmitter<IProduct> = new EventEmitter();
+
+  constructor(private userList: UserTempListService,
+              private listService: ListService,
+              private idGenerator: IdGeneratorService) {
+
     this.subscription = this.userList.onProduct().subscribe(product => {
       if (product) {
         this.products.push(product);
@@ -38,6 +43,7 @@ export class AddListComponent implements OnInit {
         this.products = [];
       }
     })
+
   }
 
   ngOnInit(): void {
@@ -50,22 +56,18 @@ export class AddListComponent implements OnInit {
   onDelete(index: number): void {
     this.totalPrice -= Number(this.products[index].totalPrice);
 
-    if(this.products[index].isSelected)
+    if (this.products[index].isSelected)
       this.selectedPrice -= Number(this.products[index].totalPrice);
 
-    if(!this.products[index].isSelected)
+    if (!this.products[index].isSelected)
       this.unselectedPrice -= Number(this.products[index].totalPrice);
 
     this.products.splice(index, 1);
   }
 
-  addList(): void {
-    console.log("toggle");
-  }
-
   getTotalPrice(product: IProduct): void {
-      this.totalPrice += Number(product.totalPrice);
-      this.unselectedPrice += Number(product.totalPrice);
+    this.totalPrice += Number(product.totalPrice);
+    this.unselectedPrice += Number(product.totalPrice);
   }
 
   selectProduct($event: Event, i: number): void {
@@ -79,5 +81,23 @@ export class AddListComponent implements OnInit {
     }
   }
 
+  addList() {
+    const newList: IList = {
+      "title": this.title,
+      "id": this.idGenerator.getRandomNumberId(),
+      "products": this.products,
+      "selectedPrice": this.selectedPrice,
+      "unselectedPrice": this.unselectedPrice,
+      "totalPrice": this.totalPrice
+    };
+
+    this.listService.addList(newList).subscribe((list) => this.lists.push(list));
+
+    this.title = '';
+    this.totalPrice = 0;
+    this.selectedPrice = 0;
+    this.unselectedPrice = 0;
+    this.products = [];
+  }
 }
 

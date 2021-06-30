@@ -31,8 +31,4 @@ export class ProductsListComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => this.products = products);
   }
-
-  getListUsingTrackBy(index: number, list: IList): number {
-    return list.id;
-  }
 }

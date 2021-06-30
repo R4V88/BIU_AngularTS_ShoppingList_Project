@@ -29,4 +29,8 @@ export class ListService {
     const url = `${this.apiUrl}/${list.id}`;
     return this.http.delete<IProduct>(url);
   }
+
+  addList(list: IList): Observable<IList> {
+    return this.http.post<IList>(this.apiUrl, list, httpOptions);
+  }
 }

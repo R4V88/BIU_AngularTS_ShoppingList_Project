@@ -90,6 +90,37 @@
       "selectedPrice": 0,
       "unselectedPrice": 3.14,
       "totalPrice": 3.14
+    },
+    {
+      "title": "teszty",
+      "id": 5,
+      "products": [
+        {
+          "id": 1,
+          "name": "Onion",
+          "price": 0.89,
+          "amount": 1,
+          "totalPrice": 0.89
+        },
+        {
+          "id": 4,
+          "name": "Bread",
+          "price": 2.58,
+          "amount": 1,
+          "totalPrice": 2.58,
+          "isSelected": true
+        },
+        {
+          "id": 8,
+          "name": "srame",
+          "price": "2",
+          "amount": "21",
+          "totalPrice": 42
+        }
+      ],
+      "selectedPrice": 2.58,
+      "unselectedPrice": 42.89,
+      "totalPrice": 45.47
     }
   ]
 }
