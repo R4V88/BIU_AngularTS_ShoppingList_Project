@@ -1,8 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IList} from "../../entity/list";
 import {IProduct} from "../../entity/product";
-import {Subject, Subscription} from "rxjs";
+import {Observable, Subject, Subscription} from "rxjs";
 import {UserTempListService} from "../../services/user-temp-list.service";
+import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
+
 
 @Component({
   selector: 'app-add-list',
@@ -25,7 +27,7 @@ export class AddListComponent implements OnInit {
   totalPrice!: number;
 
   errorMessage: string = '';
-
+  faTimes = faTimes;
 
   constructor(private userList: UserTempListService) {
     this.subscription = this.userList.onProduct().subscribe(product => {
@@ -37,11 +39,20 @@ export class AddListComponent implements OnInit {
     })
   }
 
+  ngOnInit(): void {}
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  ngOnInit(): void {}
+  onDelete(index: number) {
+    this.products.splice(index,1);
+  }
+
+  // deleteProduct() {
+  //   this.products.splice(this.prodIndex);
+  // }
+
 
   toggleAddList() {
     console.log("toggle");

@@ -4,18 +4,28 @@
   <table class='table'>
     <thead>
     <tr>
+      <th>Select</th>
       <th>Product</th>
       <th>Amount</th>
       <th>Price / 1 prod.</th>
       <th>Total</th>
+      <th>Delete</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products; let i = index">
+      <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"></td>
       <td>{{ product.name | lowercase }}</td>
       <td>{{ product.amount }}</td>
       <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
       <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+      <td>
+        <fa-icon
+          (click)="onDelete(i)"
+          [icon]="faTimes"
+          [ngStyle]="{ color: 'red' }">
+        </fa-icon>
+      </td>
     </tr>
     </tbody>
   </table>
