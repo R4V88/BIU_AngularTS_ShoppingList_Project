@@ -26,7 +26,19 @@ export class EditProductComponent implements OnInit {
   }
 
   editProduct() {
-     const editedProduct: IProduct = {
+    if (this.name == null) {
+      alert("Please write new product name!")
+    }
+
+    if (this.price == null) {
+      alert("Please write new product price!")
+    }
+
+    if (this.amount == null) {
+      alert("Please write new product amount!")
+    }
+
+    const editedProduct: IProduct = {
       "id": this.selectedProduct.id,
       "name": this.name,
       "price": this.price,

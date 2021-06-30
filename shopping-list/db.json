@@ -9,10 +9,11 @@
     },
     {
       "id": 2,
-      "name": "Potato",
-      "price": 1,
+      "name": "Giraffe",
+      "price": 0.89,
       "amount": 1,
-      "totalPrice": 1
+      "totalPrice": 0.89,
+      "isSelected": false
     },
     {
       "id": 3,
