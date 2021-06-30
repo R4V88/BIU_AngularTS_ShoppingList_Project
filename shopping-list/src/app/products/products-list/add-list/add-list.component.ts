@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IList} from "../../entity/list";
 import {IProduct} from "../../entity/product";
-import {Observable, Subject, Subscription} from "rxjs";
+import {Subscription} from "rxjs";
 import {UserTempListService} from "../../services/user-temp-list.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 
@@ -22,39 +22,61 @@ export class AddListComponent implements OnInit {
   products: IProduct[] = [];
   subscription!: Subscription;
 
-  selectedPrice!: number;
-  unselectedPrice!: number;
-  totalPrice!: number;
+  selectedPrice: number = 0;
+  totalPrice: number = 0;
+  unselectedPrice: number = 0;
 
   errorMessage: string = '';
   faTimes = faTimes;
 
   constructor(private userList: UserTempListService) {
     this.subscription = this.userList.onProduct().subscribe(product => {
-      if(product) {
+      if (product) {
         this.products.push(product);
+        this.getTotalPrice(product);
       } else {
         this.products = [];
       }
     })
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
 
-  onDelete(index: number) {
-    this.products.splice(index,1);
+  onDelete(index: number): void {
+    this.totalPrice -= Number(this.products[index].totalPrice);
+
+    if(this.products[index].isSelected)
+      this.selectedPrice -= Number(this.products[index].totalPrice);
+
+    if(!this.products[index].isSelected)
+      this.unselectedPrice -= Number(this.products[index].totalPrice);
+
+    this.products.splice(index, 1);
   }
 
-  addList() {
+  addList(): void {
     console.log("toggle");
   }
 
-  selectProduct($event: Event, i: number){
+  getTotalPrice(product: IProduct): void {
+      this.totalPrice += Number(product.totalPrice);
+      this.unselectedPrice += Number(product.totalPrice);
+  }
+
+  selectProduct($event: Event, i: number): void {
     this.products[i].isSelected = !this.products[i].isSelected;
+    if (this.products[i].isSelected) {
+      this.selectedPrice += Number(this.products[i].totalPrice);
+      this.unselectedPrice -= Number(this.products[i].totalPrice);
+    } else {
+      this.selectedPrice -= Number(this.products[i].totalPrice);
+      this.unselectedPrice += Number(this.products[i].totalPrice);
+    }
   }
 
 }
