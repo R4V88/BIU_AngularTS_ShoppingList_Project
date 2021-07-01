@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive" cdkDropList (cdkDropListDropped)="drop($event)">
   <label for="title">Title: </label>
   <input [(ngModel)]="title" class="form-control" id="title" placeholder="List tile" type="text">
   <table class='table'>
@@ -13,8 +13,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let product of products; let i = index" [class.selected]="products[i].isSelected == true">
-      <td><input (change)="selectProduct($event, i)" id="vehicle1" name="vehicle1" type="checkbox" value="Bike"></td>
+    <tr cdkDrag *ngFor="let product of products; let i = index" [class.selected]="products[i].isSelected == true">
+      <td><input (change)="selectProduct($event, i)" id="checkbox" name="checkbox" type="checkbox" value="unchecked"></td>
       <td>{{ product.name | lowercase }}</td>
       <td>{{ product.amount }}</td>
       <td>{{ product.price | currency: 'PLN ': 'symbol': '1.2-2'}}</td>

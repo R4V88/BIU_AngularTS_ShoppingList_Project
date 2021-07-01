@@ -6,6 +6,7 @@ import {UserTempListService} from "../../services/user-temp-list.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
 import {ListService} from "../../services/list.service";
 import {IdGeneratorService} from "../../services/id-generator.service";
+import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 
 
 @Component({
@@ -96,6 +97,10 @@ export class AddListComponent implements OnInit {
     this.selectedPrice = 0;
     this.unselectedPrice = 0;
     this.products = [];
+  }
+
+  drop(event: CdkDragDrop<IProduct[]>){
+    moveItemInArray(this.products, event.previousIndex, event.currentIndex);
   }
 }
 

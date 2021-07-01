@@ -17,6 +17,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AddListComponent} from './products/products-list/add-list/add-list.component';
 import {ListItemComponent} from './products/products-list/list-item/list-item.component';
 import {EditProductComponent} from './products/product-pool/edit-product/edit-product.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {EditProductComponent} from './products/product-pool/edit-product/edit-pr
       {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    DragDropModule
 
   ],
   providers: [],
