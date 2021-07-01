@@ -17,8 +17,8 @@
       <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" (change)="selectProduct($event, i)"></td>
       <td>{{ product.name | lowercase }}</td>
       <td>{{ product.amount }}</td>
-      <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-      <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+      <td>{{ product.price | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
+      <td>{{product.totalPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
       <td>
         <fa-icon
           (click)="onDelete(i)"
@@ -29,8 +29,8 @@
     </tr>
     </tbody>
   </table>
-  <h6>Total price: {{totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</h6>
-  <h6>Selected products price: {{selectedPrice | currency: 'PLN': 'symbol': '1.2-2'}}</h6>
-  <h6>Unselected products price: {{unselectedPrice | currency: 'PLN': 'symbol': '1.2-2'}}</h6>
+  <h6>Total price: {{totalPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</h6>
+  <h6>Selected products price: {{selectedPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</h6>
+  <h6>Unselected products price: {{unselectedPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</h6>
   <app-button (btnClick)="addList()" color="green" text="Add List"></app-button>
 </div>

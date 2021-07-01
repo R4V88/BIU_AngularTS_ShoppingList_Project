@@ -21,8 +21,8 @@
         <tr *ngFor='let product of products' [class.selected]="product === productToSend">
           <td>{{ product.name | lowercase }}</td>
           <td>{{ product.amount }}</td>
-          <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
-          <td>{{product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+          <td>{{ product.price | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
+          <td>{{product.totalPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
           <td>
             <fa-icon
               (click)="onEdit(product)"
