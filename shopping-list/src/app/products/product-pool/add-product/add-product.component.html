@@ -1,0 +1,16 @@
+<form>
+  <h4>Add product: </h4>
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input [(ngModel)]="name" class="form-control" id="name" name="name" placeholder="Product name..." type="text">
+  </div>
+  <div class="form-group">
+    <label for="price">Price: </label>
+    <input [(ngModel)]="price" class="form-control" id="price" name="price" type="text">
+  </div>
+  <div class="form-group">
+    <label for="amount">Amount: </label>
+    <input [(ngModel)]="amount" class="form-control" id="amount" name="amount" type="text">
+  </div>
+  <app-button (btnClick)="addProduct()" color="green" text="Submit"></app-button>
+</form>

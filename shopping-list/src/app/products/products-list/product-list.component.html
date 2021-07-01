@@ -1,0 +1,41 @@
+<div class='card'>
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div>
+    <div class="card-body">
+      <div class="flex-container">
+        <div class="flex-child magenta">
+          <app-add-list></app-add-list>
+        </div>
+        <div class="flex-child green">
+          <div class='table-responsive'>
+            <table *ngIf='products.length'
+                   class='table'>
+              <thead>
+              <tr>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Price / 1 prod.</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr (click)="sendProduct(product)" *ngFor='let product of products'>
+                <td>{{ product.name | lowercase }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+                <td>{{ product.totalPrice | currency: 'PLN': 'symbol': '1.2-2'}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>

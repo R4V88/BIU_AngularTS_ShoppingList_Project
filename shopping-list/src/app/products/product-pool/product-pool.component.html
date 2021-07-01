@@ -1,0 +1,58 @@
+<div class='card'>
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+
+    <div class='table-responsive'>
+      <table *ngIf='products.length'
+             class='table'>
+        <thead>
+        <tr>
+          <th>Product</th>
+          <th>Amount</th>
+          <th>Price / 1 prod.</th>
+          <th>Total Price</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor='let product of products' [class.selected]="product === productToSend">
+          <td>{{ product.name | lowercase }}</td>
+          <td>{{ product.amount }}</td>
+          <td>{{ product.price | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
+          <td>{{product.totalPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
+          <td>
+            <fa-icon
+              (click)="onEdit(product)"
+              [icon]="faPencil"
+              [ngStyle]="{ color: 'blue' }">
+            </fa-icon>
+          </td>
+          <td>
+            <fa-icon
+              (click)="onDelete(product)"
+              [icon]="faTimes"
+              [ngStyle]="{ color: 'red' }">
+            </fa-icon>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex-container">
+      <div class="flex-child magenta">
+        <app-add-product (onAddProduct)="addCreatedProduct($event)"></app-add-product>
+      </div>
+      <div class="flex-child green">
+        <app-edit-product (onEditProduct)="editSelectedProduct($event)"
+                          [selectedProduct]="productToSend"></app-edit-product>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf='errorMessage'
+     class='alert alert-danger'>
+  Error: {{ errorMessage }}
+</div>

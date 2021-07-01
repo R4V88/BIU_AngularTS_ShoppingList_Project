@@ -1,0 +1,36 @@
+<div class="table-responsive">
+  <label for="title">Title: </label>
+  <input [(ngModel)]="title" class="form-control" id="title" placeholder="List tile" type="text">
+  <table class='table'>
+    <thead>
+    <tr>
+      <th>Select</th>
+      <th>Product</th>
+      <th>Amount</th>
+      <th>Price / 1 prod.</th>
+      <th>Total</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products; let i = index" [class.selected]="products[i].isSelected == true">
+      <td><input (change)="selectProduct($event, i)" id="vehicle1" name="vehicle1" type="checkbox" value="Bike"></td>
+      <td>{{ product.name | lowercase }}</td>
+      <td>{{ product.amount }}</td>
+      <td>{{ product.price | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
+      <td>{{product.totalPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</td>
+      <td>
+        <fa-icon
+          (click)="onDelete(i)"
+          [icon]="faTimes"
+          [ngStyle]="{ color: 'red' }">
+        </fa-icon>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <h6>Total price: {{totalPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</h6>
+  <h6>Selected products price: {{selectedPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</h6>
+  <h6>Unselected products price: {{unselectedPrice | currency: 'PLN ': 'symbol': '1.2-2'}}</h6>
+  <app-button (btnClick)="addList()" color="green" text="Add List"></app-button>
+</div>
