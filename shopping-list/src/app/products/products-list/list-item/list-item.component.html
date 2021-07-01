@@ -1,16 +1,20 @@
 <div *ngIf='lists.length' class="container">
-  <div *ngFor='let list of lists, let i = index, trackBy:getListUsingTrackBy' class='table-responsive'>
-    <div class="container">
-      <h6>Title: {{list.title}}</h6>
+  <div *ngFor='let list of lists, let i = index, trackBy:getListUsingTrackBy' class='table-responsive listItemTable'>
+    <div class="container flex-container">
+      <div class="flex-child">
+        <h6>Title: {{list.title}}</h6>
+      </div>
       <div>
-        <div>
-          <h6>Delete List: </h6>
+        <div class="flex-child">
+          <div class="deleteButton">
+            <h6>Delete List: </h6>
+          </div>
+          <fa-icon
+            (click)="onDelete(list)"
+            [icon]="faTimes"
+            [ngStyle]="{ color: 'red' }">
+          </fa-icon>
         </div>
-        <fa-icon
-          (click)="onDelete(list)"
-          [icon]="faTimes"
-          [ngStyle]="{ color: 'red' }">
-        </fa-icon>
       </div>
     </div>
     <table class='table'>
