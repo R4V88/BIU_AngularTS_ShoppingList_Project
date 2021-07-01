@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ChangeDetectorRef} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IProduct} from "../entity/product";
 import {ProductService} from "../services/product.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
@@ -58,7 +58,7 @@ export class ProductPoolComponent implements OnInit {
       .subscribe(() => (this.products = this.products.filter((p: IProduct) => p.id !== product.id)))
   }
 
-  onEdit(product: IProduct): void{
+  onEdit(product: IProduct): void {
     this.productToSend = product;
   }
 }

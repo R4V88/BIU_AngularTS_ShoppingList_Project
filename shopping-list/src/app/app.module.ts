@@ -16,7 +16,7 @@ import {ButtonComponent} from './shared/button/button.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AddListComponent} from './products/products-list/add-list/add-list.component';
 import {ListItemComponent} from './products/products-list/list-item/list-item.component';
-import { EditProductComponent } from './products/product-pool/edit-product/edit-product.component';
+import {EditProductComponent} from './products/product-pool/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [

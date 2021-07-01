@@ -122,6 +122,36 @@
       "selectedPrice": 2.58,
       "unselectedPrice": 42.89,
       "totalPrice": 45.47
+    },
+    {
+      "id": 3,
+      "products": [
+        {
+          "id": 3,
+          "name": "Tomato",
+          "price": 1.25,
+          "amount": 1,
+          "totalPrice": 1.25,
+          "isSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Bread",
+          "price": 2.58,
+          "amount": 1,
+          "totalPrice": 2.58,
+          "isSelected": false
+        },
+        {
+          "id": 5,
+          "name": "Butter",
+          "price": 5,
+          "amount": 1,
+          "totalPrice": 5,
+          "isSelected": true
+        }
+      ],
+      "totalPrice": 8.83
     }
   ]
 }

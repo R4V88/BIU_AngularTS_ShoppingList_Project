@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {IProduct} from "../entity/product";
-import {Observable, of, Subject} from "rxjs";
+import {Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserTempListService{
+export class UserTempListService {
 
   private subject = new Subject<any>();
 

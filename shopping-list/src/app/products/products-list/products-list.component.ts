@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IProduct} from "../entity/product";
 import {ProductService} from "../services/product.service";
-import {IList} from "../entity/list";
 import {ListService} from "../services/list.service";
 import {UserTempListService} from "../services/user-temp-list.service";
 

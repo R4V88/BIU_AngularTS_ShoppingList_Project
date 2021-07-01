@@ -86,8 +86,6 @@ export class AddListComponent implements OnInit {
       "title": this.title,
       "id": this.idGenerator.getRandomNumberId(),
       "products": this.products,
-      "selectedPrice": this.selectedPrice,
-      "unselectedPrice": this.unselectedPrice,
       "totalPrice": this.totalPrice
     };
 

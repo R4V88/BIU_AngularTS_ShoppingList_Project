@@ -21,7 +21,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor='let product of products' (click)="sendProduct(product)">
+              <tr (click)="sendProduct(product)" *ngFor='let product of products'>
                 <td>{{ product.name | lowercase }}</td>
                 <td>{{ product.amount }}</td>
                 <td>{{ product.price | currency: 'PLN': 'symbol': '1.2-2'}}</td>

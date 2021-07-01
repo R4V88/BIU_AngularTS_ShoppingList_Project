@@ -1,6 +1,6 @@
 <div class="table-responsive">
   <label for="title">Title: </label>
-  <input [(ngModel)]="title" class="form-control" id="title" type="text" placeholder="List tile">
+  <input [(ngModel)]="title" class="form-control" id="title" placeholder="List tile" type="text">
   <table class='table'>
     <thead>
     <tr>
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let product of products; let i = index" [class.selected]="products[i].isSelected == true">
-      <td><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" (change)="selectProduct($event, i)"></td>
+      <td><input (change)="selectProduct($event, i)" id="vehicle1" name="vehicle1" type="checkbox" value="Bike"></td>
       <td>{{ product.name | lowercase }}</td>
       <td>{{ product.amount }}</td>
       <td>{{ product.price | currency: 'PLN ': 'symbol': '1.2-2'}}</td>

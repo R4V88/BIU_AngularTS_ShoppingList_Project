@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {IList} from "../../entity/list";
 import {ListService} from "../../services/list.service";
 import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
-import {IProduct} from "../../entity/product";
 
 @Component({
   selector: 'app-list-item',

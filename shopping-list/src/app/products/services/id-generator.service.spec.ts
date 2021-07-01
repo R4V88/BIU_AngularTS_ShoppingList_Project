@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { IgGeneratorService } from './id-generator.service';
+import {IgGeneratorService} from './id-generator.service';
 
 describe('IgGeneratorService', () => {
   let service: IgGeneratorService;
