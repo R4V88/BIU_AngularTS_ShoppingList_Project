@@ -50,14 +50,6 @@
       "amount": "2",
       "totalPrice": 30,
       "isSelected": false
-    },
-    {
-      "id": "_ugahas053",
-      "name": "dżem",
-      "price": "3",
-      "amount": "4",
-      "totalPrice": 12,
-      "isSelected": false
     }
   ],
   "lists": [
@@ -93,42 +85,6 @@
       "selectedPrice": 0,
       "unselectedPrice": 3.14,
       "totalPrice": 3.14
-    },
-    {
-      "title": "zakupy",
-      "id": 5,
-      "products": [
-        {
-          "id": "_599g6kblj",
-          "name": "kuboty",
-          "price": "15",
-          "amount": "2",
-          "totalPrice": 30,
-          "isSelected": false
-        },
-        {
-          "id": 4,
-          "name": "Bread",
-          "price": 2.58,
-          "amount": 1,
-          "totalPrice": 2.58
-        },
-        {
-          "id": 3,
-          "name": "Tomato",
-          "price": 1.25,
-          "amount": 1,
-          "totalPrice": 1.25
-        },
-        {
-          "id": 5,
-          "name": "Butter",
-          "price": 5,
-          "amount": 1,
-          "totalPrice": 5
-        }
-      ],
-      "totalPrice": 38.83
     }
   ]
 }
