@@ -83,6 +83,11 @@ export class AddListComponent implements OnInit {
   }
 
   addList() {
+    if (!this.title || this.title.length <= 2) {
+      alert('Please add a correct title!');
+      return;
+    }
+
     const newList: IList = {
       "title": this.title,
       "id": this.idGenerator.getRandomNumberId(),

@@ -95,35 +95,40 @@
       "totalPrice": 3.14
     },
     {
-      "title": "Shopping list 2 ",
-      "id": 6,
+      "title": "zakupy",
+      "id": 5,
       "products": [
         {
-          "id": 1,
-          "name": "Onion",
-          "price": 0.89,
-          "amount": 1,
-          "totalPrice": 0.89,
+          "id": "_599g6kblj",
+          "name": "kuboty",
+          "price": "15",
+          "amount": "2",
+          "totalPrice": 30,
           "isSelected": false
+        },
+        {
+          "id": 4,
+          "name": "Bread",
+          "price": 2.58,
+          "amount": 1,
+          "totalPrice": 2.58
         },
         {
           "id": 3,
           "name": "Tomato",
           "price": 1.25,
           "amount": 1,
-          "totalPrice": 1.25,
-          "isSelected": false
+          "totalPrice": 1.25
         },
         {
           "id": 5,
           "name": "Butter",
           "price": 5,
           "amount": 1,
-          "totalPrice": 5,
-          "isSelected": false
+          "totalPrice": 5
         }
       ],
-      "totalPrice": 7.140000000000001
+      "totalPrice": 38.83
     }
   ]
 }
